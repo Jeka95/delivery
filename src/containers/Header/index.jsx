@@ -5,6 +5,7 @@ import Logo from "../../conponents/Logo";
 import Menu from '../../conponents/Menu';
 import Info from '../../conponents/Info';
 import Basket from "../../conponents/Basket"
+import SingIn from '../../conponents/SingIn';
 
 
 class Header extends React.Component {
@@ -20,6 +21,7 @@ class Header extends React.Component {
             <Menu />
             <Info />
             <Basket />
+            <SingIn />
          </header>
       );
    }
