@@ -14,6 +14,7 @@ import About from "./containers/About";
 import Contacts from "./containers/Contacts";
 import HowOrder from "./containers/HowOrder";
 import Certificate from "./containers/Certificate";
+import Basket from "./containers/Basket";
 
 
 
@@ -36,6 +37,7 @@ function App() {
           <Route path="/contacts" component={Contacts}></Route>
           <Route path="/howtoorder" component={HowOrder}></Route>
           <Route path="/certificate" component={Certificate}></Route>
+          <Route path="/basket" component={Basket}></Route>
         </Switch>
       </Router>
     </div>

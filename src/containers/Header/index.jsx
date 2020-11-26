@@ -4,6 +4,7 @@ import "./index.scss";
 import Logo from "../../conponents/Logo";
 import Menu from '../../conponents/Menu';
 import Info from '../../conponents/Info';
+import Basket from "../../conponents/Basket"
 
 
 class Header extends React.Component {
@@ -18,6 +19,7 @@ class Header extends React.Component {
             <Logo />
             <Menu />
             <Info />
+            <Basket />
          </header>
       );
    }
