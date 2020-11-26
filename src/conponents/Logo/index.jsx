@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 const Logo = () => {
    return (
-      <Link exact to="/">
+      <Link to="/">
          <img src={LogoIcon} alt="" />
       </Link>
 

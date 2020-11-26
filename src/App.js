@@ -10,6 +10,11 @@ import Soups from './containers/Soups';
 import Sushi from './containers/Sushi';
 import SushiSet from './containers/SushiSet';
 import Shares from "./containers/Shares";
+import About from "./containers/About";
+import Contacts from "./containers/Contacts";
+import HowOrder from "./containers/HowOrder";
+import Certificate from "./containers/Certificate";
+
 
 
 
@@ -27,6 +32,10 @@ function App() {
           <Route path="/soups" component={Soups}></Route>
           <Route path="/salad" component={Salad}></Route>
           <Route path="/drinks" component={Drinks}></Route>
+          <Route path="/about" component={About}></Route>
+          <Route path="/contacts" component={Contacts}></Route>
+          <Route path="/howtoorder" component={HowOrder}></Route>
+          <Route path="/certificate" component={Certificate}></Route>
         </Switch>
       </Router>
     </div>

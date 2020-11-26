@@ -14,10 +14,10 @@ const Info = () => {
          </div>
          <nav className={infoActive ? "info active" : "info"} >
             <ul className="info__items" onClick={() => setInfoActive(false)}>
-               <InfoItem link="/">Контакти</InfoItem>
-               <InfoItem link="/">Про нас</InfoItem>
-               <InfoItem link="/">Як замовити</InfoItem>
-               <InfoItem link="/soups">Сертифікати</InfoItem>
+               <InfoItem link="/contacts">Контакти</InfoItem>
+               <InfoItem link="/about">Про нас</InfoItem>
+               <InfoItem link="/howtoorder">Як замовити</InfoItem>
+               <InfoItem link="/certificate">Сертифікати</InfoItem>
             </ul>
          </nav>
       </div>
