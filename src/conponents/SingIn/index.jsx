@@ -32,7 +32,7 @@ class SingIn extends React.Component {
          var emailVerified = curentuser.emailVerified;
          var uid = curentuser.uid;
          console.log("name-->", name);
-         console.log("email-->", email);
+         console.log("email-->",);
          console.log("photoUrl-->", photoUrl);
          console.log("emailVerified-->", emailVerified);
          console.log("uid-->", uid);
@@ -42,7 +42,7 @@ class SingIn extends React.Component {
             .then((response) => {
                if (response.data == null) {
                   axiosUser
-                     .post("/users.json", { uid });
+                     .post("/users.json", { name, email, uid });
                } else {
                   let bool = Object.keys(response.data).some(function (elem) {
                      console.log(response.data[elem].uid);
@@ -53,7 +53,7 @@ class SingIn extends React.Component {
                   console.log(bool);
                   if (!bool) {
                      axiosUser
-                        .post("/users.json", { uid });
+                        .post("/users.json", { name, email, uid });
                   }
                }
             })

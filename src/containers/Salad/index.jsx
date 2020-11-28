@@ -1,17 +1,36 @@
 import React from 'react';
 
-import "./index.scss";
+import getSalad from "../../instance";
+import FoodItem from "../../conponents/FoodItem"
 
-class Salad extends React.Component {
-   constructor(props) {
-      super(props);
-      this.state = {}
-   }
-   render() {
-      return (
-         <div>Салати</div>
-      );
-   }
+import "./index.scss";
+const Salad = () => {
+
+   const [salads, setSalads] = React.useState([]);
+
+   React.useEffect(() => {
+      getSalad
+         .get("/salads.json")
+         .then(response => {
+            setSalads(response.data)
+         })
+   }, []);
+
+
+   console.log(salads);
+
+
+   return (
+      <div>
+         {
+            salads.map((food) => {
+               return (
+                  <FoodItem key={food.name} food={food} />
+               )
+            })
+         }
+      </div>
+   );
 }
 
 export default Salad;

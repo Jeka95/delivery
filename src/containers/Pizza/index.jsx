@@ -1,17 +1,37 @@
 import React from 'react';
 
-import "./index.scss";
+import getPizzas from "../../instance";
+import FoodItem from "../../conponents/FoodItem"
 
-class Pizza extends React.Component {
-   constructor(props) {
-      super(props);
-      this.state = {}
-   }
-   render() {
-      return (<div>
-         Піца
-      </div>);
-   }
+import "./index.scss";
+const Pizza = () => {
+
+   const [pizzas, setPizzas] = React.useState([]);
+
+   React.useEffect(() => {
+      getPizzas
+         .get("/pizzas.json")
+         .then(response => {
+            setPizzas(response.data)
+         })
+   }, []);
+
+
+   console.log(pizzas);
+
+
+   return (
+      <div>
+         {
+            pizzas.map((food) => {
+               return (
+                  <FoodItem key={food.name} food={food} />
+               )
+            })
+         }
+      </div>
+   );
 }
 
 export default Pizza;
+

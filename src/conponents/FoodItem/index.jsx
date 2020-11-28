@@ -1,0 +1,45 @@
+import React from 'react';
+import { connect } from 'react-redux';
+
+import "./index.scss";
+
+
+
+
+
+class FoodItem extends React.Component {
+
+   render() {
+
+      console.log("foodItem-->", this.props.fooditem);
+      console.log("result-->", this.props.result);
+      return (
+         <div className="food-block">
+            <img className="food-block__image" src={this.props.food.img} alt={this.props.food.name} />
+            <h4 className="food-block__title">{this.props.food.name}</h4>
+            <span className="food-block__ingredients">{this.props.food.ingredients}</span>
+            <div className="food-block__bottom">
+               <div className="food-block__price"> {this.props.food.price} грн</div>
+               <button onClick={() => { this.props.AddToCard(this.props.food) }}>Замовити</button>
+               <button>Улюблене</button>
+            </div>
+         </div >
+      );
+   }
+}
+
+const mapStateToProps = (state) => {
+   return {
+      fooditem: state.foodItem,
+      result: state.results
+   }
+}
+
+const mapDispatchToProps = (dispatch) => {
+   return {
+      AddToCard: (obj) => dispatch({ type: 'ADD_TO_CARD', payload: obj })
+   }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(FoodItem);
+
