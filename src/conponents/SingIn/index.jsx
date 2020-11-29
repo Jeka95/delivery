@@ -2,6 +2,8 @@ import React from 'react';
 import withFirebaseAuth from 'react-with-firebase-auth'
 import firebase from 'firebase/app';
 import 'firebase/auth';
+import "firebase/database";
+import { connect } from 'react-redux';
 
 import axiosUser from "../../instance"
 import FirebaseConfig from '../../FirebaseConfig';
@@ -13,17 +15,16 @@ const providers = {
    googleProvider: new firebase.auth.GoogleAuthProvider(),
 };
 
+
 class SingIn extends React.Component {
    constructor(props) {
       super(props);
-      this.state = {}
+      this.state = {
+         curentUserId: {}
+      }
    }
-   render() {
-      const {
-         user,
-         signOut,
-         signInWithGoogle,
-      } = this.props;
+
+   componentDidMount() {
       var curentuser = firebase.auth().currentUser;
       if (curentuser != null) {
          var name = curentuser.displayName;
@@ -33,25 +34,77 @@ class SingIn extends React.Component {
             .get("/users.json")
             .then((response) => {
                if (response.data == null) {
+                  console.log("FUUKK");
                   axiosUser
                      .post("/users.json", { name, email, uid });
                } else {
                   let bool = Object.keys(response.data).some(function (elem) {
                      return uid === response.data[elem].uid;
                   })
+                  console.log("bool-->", bool);
                   if (!bool) {
                      axiosUser
                         .post("/users.json", { name, email, uid });
                   }
                }
             })
+         console.log(this.props);
+         var UserRef = firebase.database().ref("/users");
+         console.log("curent UID-->", curentuser.uid);
+         UserRef.orderByChild("uid").equalTo(`${curentuser.uid}`).on("child_added", function foo(snapshot) {
+            console.log("USER KEY -->", snapshot.key);
+            console.log(this.props);
+         });
       }
+   }
+
+   render() {
+      const {
+         user,
+         signOut,
+         signInWithGoogle,
+      } = this.props;
+
+
+      var curentuser = firebase.auth().currentUser;
+      if (curentuser != null) {
+         var name = curentuser.displayName;
+         var email = curentuser.email;
+         var uid = curentuser.uid;
+         axiosUser
+            .get("/users.json")
+            .then((response) => {
+               if (response.data == null) {
+                  console.log("FUUKK");
+                  axiosUser
+                     .post("/users.json", { name, email, uid });
+               } else {
+                  let bool = Object.keys(response.data).some(function (elem) {
+                     return uid === response.data[elem].uid;
+                  })
+                  console.log("bool-->", bool);
+                  if (!bool) {
+                     axiosUser
+                        .post("/users.json", { name, email, uid });
+                  }
+               }
+            })
+         var UserRef = firebase.database().ref("/users");
+         console.log("curent UID-->", curentuser.uid);
+         UserRef.orderByChild("uid").equalTo(`${curentuser.uid}`).on("child_added", function foo(snapshot) {
+            console.log("USER KEY -->", snapshot.key);
+         });
+
+      }
+
+
+
 
       return (
          <div>
             {
                user
-                  ? <p>Hello, {user.displayName}</p>
+                  ? <p>Hello, {user.displayName}</p >
                   : <p>Please sign in.</p>
             }
             {
@@ -59,12 +112,18 @@ class SingIn extends React.Component {
                   ? <button onClick={signOut}>Sign out</button>
                   : <button onClick={signInWithGoogle} >Sign in with Google</button>
             }
-         </div>
+         </div >
       );
+   }
+}
+
+const mapDispatchToProps = (dispatch) => {
+   return {
+      CurentUserID: (obj) => dispatch({ type: 'CUR_USER', payload: obj })
    }
 }
 
 export default withFirebaseAuth({
    providers,
    firebaseAppAuth,
-})(SingIn);
+})(connect(mapDispatchToProps)(SingIn))

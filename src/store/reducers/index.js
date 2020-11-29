@@ -1,4 +1,4 @@
-const initialState = { foodItem: {}, results: [], counter: 0, resultPrice: 0 }
+const initialState = { foodItem: {}, results: [], counter: 0, resultPrice: 0, curentUserId: {}, }
 
 export const rootReducer = (state = initialState, action) => {
     switch (action.type) {
@@ -17,6 +17,11 @@ export const rootReducer = (state = initialState, action) => {
                 results: newarr,
                 counter: state.counter - 1,
                 resultPrice: state.resultPrice - action.payload.price,
+            }
+        case 'CUR_USER':
+            return {
+                ...state,
+                curentUserId: action.payload,
             }
         default:
             return state
