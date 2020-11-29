@@ -41,7 +41,6 @@ class SingIn extends React.Component {
             .get("/users.json")
             .then((response) => {
                if (response.data == null) {
-                  console.log("FUUKK");
                   axiosUser
                      .post("/users.json", { name, email, uid });
                } else {
@@ -56,11 +55,9 @@ class SingIn extends React.Component {
                }
             })
          var UserRef = firebase.database().ref("/users");
-         console.log("curent UID-->", curentuser.uid);
-         UserRef.orderByChild("uid").equalTo(`${curentuser.uid}`).on("child_added", function foo(snapshot) {
-            console.log("USER KEY -->", snapshot.key);
+         UserRef.orderByChild("uid").equalTo(`${curentuser.uid}`).once("value", function foo(snapshot) {
+            return console.log("USER KEY -->", snapshot.val());
          });
-
       }
       return (
          <div>
