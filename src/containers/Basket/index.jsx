@@ -8,9 +8,13 @@ import BasketItem from "../../conponents/BasketItem";
 class Basket extends React.Component {
 
 
+   ToOrderHendler = () => {
+      console.log(this.props.result);
+   }
+
+
    render() {
       let result = this.props.result;
-      console.log(this.props.result);
       return (
          <div>
             <div>Корзина покупок</div>
@@ -19,12 +23,13 @@ class Basket extends React.Component {
                   return (
                      <div key={index}>
                         <BasketItem food={elem} />
-                        <button id={index} onClick={() => { this.props.RemoveFromCard(index) }} >Видалити</button>
+                        <button id={index} onClick={() => { this.props.RemoveFromCard(index, elem.price) }} >Видалити</button>
                      </div>
 
                   )
                })
             }
+            <button onClick={() => { this.ToOrderHendler() }}>Оформити замовлення</button>
          </div>
       );
    }
@@ -38,7 +43,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
    return {
-      RemoveFromCard: (index) => dispatch({ type: 'REM_FROM_CARD', payload: index })
+      RemoveFromCard: (index, price) => dispatch({ type: 'REM_FROM_CARD', payload: { index, price } })
    }
 }
 

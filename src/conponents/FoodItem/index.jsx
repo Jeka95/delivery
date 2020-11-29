@@ -11,8 +11,6 @@ class FoodItem extends React.Component {
 
    render() {
 
-      console.log("foodItem-->", this.props.fooditem);
-      console.log("result-->", this.props.result);
       return (
          <div className="food-block">
             <img className="food-block__image" src={this.props.food.img} alt={this.props.food.name} />

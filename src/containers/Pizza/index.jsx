@@ -16,10 +16,6 @@ const Pizza = () => {
          })
    }, []);
 
-
-   console.log(pizzas);
-
-
    return (
       <div>
          {

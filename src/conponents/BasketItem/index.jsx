@@ -11,7 +11,6 @@ const BasletItem = ({ food }) => {
          <span className="food-block__ingredients">{food.ingredients}</span>
          <div className="food-block__bottom">
             <div className="food-block__price"> {food.price} грн</div>
-            {/* <button onClick={() => { this.props.AddToCard(this.props.food) }}>Замовити</button>  */}
          </div>
       </div >
    );

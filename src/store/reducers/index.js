@@ -1,21 +1,22 @@
-const initialState = { foodItem: {}, results: [] }
+const initialState = { foodItem: {}, results: [], counter: 0, resultPrice: 0 }
 
 export const rootReducer = (state = initialState, action) => {
     switch (action.type) {
         case 'ADD_TO_CARD':
             return {
                 foodItem: action.payload,
-                results: [...state.results, action.payload]
+                results: [...state.results, action.payload],
+                counter: state.counter + 1,
+                resultPrice: state.resultPrice + action.payload.price,
             }
         case 'REM_FROM_CARD':
-            console.log("працює");
-            console.log("state.result-->", state.results);
             let newarr = [...state.results];
-            console.log("id-->", action.payload);
-            newarr.splice(action.payload, 1);
+            newarr.splice(action.payload.index, 1);
             return {
                 ...state,
-                results: newarr
+                results: newarr,
+                counter: state.counter - 1,
+                resultPrice: state.resultPrice - action.payload.price,
             }
         default:
             return state

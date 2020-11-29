@@ -1,0 +1,22 @@
+.menu__item {
+   width: 60px;
+   height: 60px;
+   margin-bottom: 30px;
+   :hover {
+      color: green;
+   }
+
+   .active {
+      fill: green;
+      color: green;
+   }
+}
+.menu__items {
+   list-style-type: none;
+   :nth-child(5) {
+      :hover {
+         fill: green;
+         color: green;
+      }
+   }
+}

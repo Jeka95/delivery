@@ -16,10 +16,6 @@ const Salad = () => {
          })
    }, []);
 
-
-   console.log(salads);
-
-
    return (
       <div>
          {

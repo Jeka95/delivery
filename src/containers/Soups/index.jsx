@@ -1,17 +1,36 @@
 import React from 'react';
 
+
+
+import getSoup from "../../instance";
+import FoodItem from "../../conponents/FoodItem"
+
 import "./index.scss";
 
-class Soups extends React.Component {
-   constructor(props) {
-      super(props);
-      this.state = {}
-   }
-   render() {
-      return (
-         <div>Супи</div>
-      );
-   }
+
+
+const Soups = () => {
+   const [soups, setSoups] = React.useState([]);
+
+   React.useEffect(() => {
+      getSoup
+         .get("/soups.json")
+         .then(response => {
+            setSoups(response.data)
+         })
+   }, []);
+
+   return (
+      <div>
+         {
+            soups.map((food) => {
+               return (
+                  <FoodItem key={food.name} food={food} />
+               )
+            })
+         }
+      </div>
+   );
 }
 
 export default Soups;

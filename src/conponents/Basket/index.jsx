@@ -1,18 +1,27 @@
 
 import React from 'react';
 import { Link } from "react-router-dom";
+import { connect } from 'react-redux';
 
 import "./index.scss";
 import BasketIcon from "../../assets/basket.png"
 
 
-const Logo = () => {
+const BasketIco = (props) => {
    return (
       <Link to="/basket" className="header__basket">
          <img src={BasketIcon} alt="" />
+         <span>{props.counter}</span>
+
+         <span>{props.resultPrice}</span>
       </Link>
 
    );
 }
-
-export default Logo;
+const mapStateToProps = (state) => {
+   return {
+      counter: state.counter,
+      resultPrice: state.resultPrice,
+   }
+}
+export default connect(mapStateToProps)(BasketIco);

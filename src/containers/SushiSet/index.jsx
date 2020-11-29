@@ -1,18 +1,36 @@
 import React from 'react';
 
+
+
+import getSushiSet from "../../instance";
+import FoodItem from "../../conponents/FoodItem"
+
 import "./index.scss";
 
 
-class SushiSet extends React.Component {
-   constructor(props) {
-      super(props);
-      this.state = {}
-   }
-   render() {
-      return (
-         <div>Суші Сети</div>
-      );
-   }
+
+const Sushi = () => {
+   const [sushiset, setSushiSet] = React.useState([]);
+
+   React.useEffect(() => {
+      getSushiSet
+         .get("/SusiSet.json")
+         .then(response => {
+            setSushiSet(response.data)
+         })
+   }, []);
+
+   return (
+      <div>
+         {
+            sushiset.map((food) => {
+               return (
+                  <FoodItem key={food.name} food={food} />
+               )
+            })
+         }
+      </div>
+   );
 }
 
-export default SushiSet;
+export default Sushi;

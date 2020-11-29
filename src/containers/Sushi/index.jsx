@@ -1,17 +1,36 @@
 import React from 'react';
 
+
+
+import getRool from "../../instance";
+import FoodItem from "../../conponents/FoodItem"
+
 import "./index.scss";
 
-class Sushi extends React.Component {
-   constructor(props) {
-      super(props);
-      this.state = {}
-   }
-   render() {
-      return (
-         <div>Роли</div>
-      );
-   }
+
+
+const Sushi = () => {
+   const [rools, setRools] = React.useState([]);
+
+   React.useEffect(() => {
+      getRool
+         .get("/rools.json")
+         .then(response => {
+            setRools(response.data)
+         })
+   }, []);
+
+   return (
+      <div>
+         {
+            rools.map((food) => {
+               return (
+                  <FoodItem key={food.name} food={food} />
+               )
+            })
+         }
+      </div>
+   );
 }
 
 export default Sushi;
