@@ -15,50 +15,16 @@ const providers = {
    googleProvider: new firebase.auth.GoogleAuthProvider(),
 };
 
-
 class SingIn extends React.Component {
    constructor(props) {
       super(props);
       this.state = {
-         curentUserId: {}
       }
    }
 
-   componentDidMount() {
-      var curentuser = firebase.auth().currentUser;
-      if (curentuser != null) {
-         var name = curentuser.displayName;
-         var email = curentuser.email;
-         var uid = curentuser.uid;
-         axiosUser
-            .get("/users.json")
-            .then((response) => {
-               if (response.data == null) {
-                  console.log("FUUKK");
-                  axiosUser
-                     .post("/users.json", { name, email, uid });
-               } else {
-                  let bool = Object.keys(response.data).some(function (elem) {
-                     return uid === response.data[elem].uid;
-                  })
-                  console.log("bool-->", bool);
-                  if (!bool) {
-                     axiosUser
-                        .post("/users.json", { name, email, uid });
-                  }
-               }
-            })
-         console.log(this.props);
-         var UserRef = firebase.database().ref("/users");
-         console.log("curent UID-->", curentuser.uid);
-         UserRef.orderByChild("uid").equalTo(`${curentuser.uid}`).on("child_added", function foo(snapshot) {
-            console.log("USER KEY -->", snapshot.key);
-            console.log(this.props);
-         });
-      }
-   }
 
    render() {
+
       const {
          user,
          signOut,
@@ -96,10 +62,6 @@ class SingIn extends React.Component {
          });
 
       }
-
-
-
-
       return (
          <div>
             {
