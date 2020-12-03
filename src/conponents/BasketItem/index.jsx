@@ -5,12 +5,14 @@ import "./index.scss";
 
 const BasletItem = ({ food }) => {
    return (
-      <div className="food-block">
-         <img className="food-block__image" src={food.img} alt={food.name} />
-         <h4 className="food-block__title">{food.name}</h4>
-         <span className="food-block__ingredients">{food.ingredients}</span>
-         <div className="food-block__bottom">
-            <div className="food-block__price"> {food.price} грн</div>
+      <div className="basket-block">
+         <img className="basket-block__image" src={food.img} alt={food.name} />
+         <div className="basket-block__discription">
+            <h4 className="basket-block__subtitle">{food.name}</h4>
+            <span className="basket-block__weight">{food.weight}</span>
+         </div>
+         <div className="basket-block__bottom">
+            <div className="basket-block__price"> {food.price} грн</div>
          </div>
       </div >
    );

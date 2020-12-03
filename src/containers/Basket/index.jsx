@@ -35,31 +35,30 @@ class Basket extends React.Component {
       let result = this.props.result;
       return (
          <div className="basket">
+            <div className="basket__title">Корзина покупок</div>
             <div className="basket__input">
                <form action="" className="basket__form">
-                  <input type="text" className="basket__name" placeholder="Імя" />
-                  <input type="text" className="basket__tel" placeholder="Телефон" />
-                  <input type="text" className="basket__city" placeholder="Місто" />
-                  <input type="text" className="basket__street" placeholder="Вулиця" />
-                  <input type="text" className="basket__house" placeholder="Будинок" />
-
+                  <input type="text" className="basket__name input" placeholder="Імя" />
+                  <input type="text" className="basket__tel input" placeholder="Телефон*" />
+                  <input type="text" className="basket__city input" placeholder="Місто" />
+                  <input type="text" className="basket__street input" placeholder="Вулиця" />
+                  <input type="text" className="basket__house input" placeholder="Будинок" />
                </form>
+               <button onClick={() => { this.ToOrderHendler() }}>Оформити замовлення</button>
+               <button onClick={() => { this.GetOrders() }}>Показати усі замовлення</button>
             </div>
-            <div>
-               <div>Корзина покупок</div>
+            <div className="basket__items">
+
                {
                   result.map((elem, index) => {
                      return (
-                        <div key={index}>
+                        <div key={index} className="basket__item">
                            <BasketItem food={elem} />
-                           <button id={index} onClick={() => { this.props.RemoveFromCard(index, elem.price) }} >Видалити</button>
+                           <button id={index} onClick={() => { this.props.RemoveFromCard(index, elem.price) }} >Х</button>
                         </div>
-
                      )
                   })
                }
-               <button onClick={() => { this.ToOrderHendler() }}>Оформити замовлення</button>
-               <button onClick={() => { this.GetOrders() }}>Показати усі замовлення</button>
             </div>
          </div>
       );

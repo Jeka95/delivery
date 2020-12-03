@@ -17,7 +17,7 @@ const Pizza = () => {
    }, []);
 
    return (
-      <div>
+      <div className="food__items">
          {
             pizzas.map((food) => {
                return (
