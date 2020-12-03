@@ -1,4 +1,4 @@
-const initialState = { foodItem: {}, results: [], counter: 0, resultPrice: 0, curentUserId: {}, }
+const initialState = { foodItem: {}, results: [], counter: 0, resultPrice: 0, curentUserId: "", }
 
 export const rootReducer = (state = initialState, action) => {
     switch (action.type) {
