@@ -21,7 +21,7 @@ const Sushi = () => {
    }, []);
 
    return (
-      <div>
+      <div className="food__items">
          {
             sushiset.map((food) => {
                return (

@@ -14,9 +14,11 @@ class FoodItem extends React.Component {
       return (
          <div className="food-block">
             <img className="food-block__image" src={this.props.food.img} alt={this.props.food.name} />
-            <h4 className="food-block__title">{this.props.food.name}</h4>
-            <span className="food-block__weight">{this.props.food.weight}</span>
-            <span className="food-block__ingredients">{this.props.food.ingredients}</span>
+            <div className="food-block__info">
+               <h4 className="food-block__title">{this.props.food.name}</h4>
+               <span className="food-block__weight">{this.props.food.weight} г</span>
+               <span className="food-block__ingredients">{this.props.food.ingredients}</span>
+            </div>
             <div className="food-block__bottom">
                <div className="food-block__price"> {this.props.food.price} грн</div>
                <button onClick={() => { this.props.AddToCard(this.props.food) }}>Замовити</button>

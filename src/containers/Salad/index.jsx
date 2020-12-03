@@ -17,7 +17,7 @@ const Salad = () => {
    }, []);
 
    return (
-      <div>
+      <div className="food__items">
          {
             salads.map((food) => {
                return (

@@ -21,7 +21,7 @@ const Drinks = () => {
    }, []);
 
    return (
-      <div>
+      <div className="food__items">
          {
             drinks.map((food) => {
                return (

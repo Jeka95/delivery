@@ -3,6 +3,11 @@
 
    &__image {
       max-width: 400px;
-      min-height: 400px;
+      min-height: auto;
+   }
+
+   &__info {
+      display: flex;
+      flex-direction: column;
    }
 }

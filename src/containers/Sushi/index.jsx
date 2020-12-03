@@ -21,7 +21,7 @@ const Sushi = () => {
    }, []);
 
    return (
-      <div>
+      <div className="food__items">
          {
             rools.map((food) => {
                return (
