@@ -47,6 +47,12 @@ class Basket extends React.Component {
          house: "",
       });
 
+
+      this.props.PostOrder();
+
+
+      console.log(this.props.result);
+
       console.log(orderResult);
    }
 
@@ -66,7 +72,6 @@ class Basket extends React.Component {
 
 
    render() {
-      let result = this.props.result;
       return (
          <div>
             <div className="basket__title">Корзина покупок</div>
@@ -80,13 +85,12 @@ class Basket extends React.Component {
                      <input name="street" type="text" className="basket__street input" placeholder="Вулиця" onChange={this.handleInputChange} value={this.state.street} />
                      <input name="house" type="text" className="basket__house input" placeholder="Будинок" onChange={this.handleInputChange} value={this.state.house} />
                   </form>
-                  <button onClick={() => { this.ToOrderHendler() }}>Оформити замовлення</button>
+                  <button onClick={this.ToOrderHendler}>Оформити замовлення</button>
                   <button onClick={() => { this.GetOrders() }}>Показати усі замовлення</button>
                </div>
                <div className="basket__items">
-
                   {
-                     result.map((elem, index) => {
+                     this.props.result.map((elem, index) => {
                         return (
                            <div key={index} className="basket__item">
                               <BasketItem food={elem} />
@@ -97,7 +101,7 @@ class Basket extends React.Component {
                   }
                </div>
             </div>
-         </div>
+         </div >
       );
    }
 }
@@ -112,7 +116,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
    return {
-      RemoveFromCard: (index, price) => dispatch({ type: 'REM_FROM_CARD', payload: { index, price } })
+      RemoveFromCard: (index, price) => dispatch({ type: 'REM_FROM_CARD', payload: { index, price } }),
+      PostOrder: () => dispatch({ type: "POST_ORDER", payload: [] })
    }
 }
 

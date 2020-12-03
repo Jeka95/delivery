@@ -23,6 +23,13 @@ export const rootReducer = (state = initialState, action) => {
                 ...state,
                 curentUserId: action.payload,
             }
+        case 'POST_ORDER':
+            return {
+                ...state,
+                results: action.payload,
+                counter: 0,
+                resultPrice: 0,
+            }
         default:
             return state
     }
