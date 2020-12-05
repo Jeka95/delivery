@@ -60,18 +60,13 @@ class Basket extends React.Component {
       axiosOrder
          .get(`/users/${this.props.ID}/orders.json`)
          .then(response => {
-            for (let prop in response.data) {
-               (response.data[prop]).map((elem, index) => {
-                  console.log(elem);
-                  return (
-                     <div key={index}>{elem}</div>)
-               })
-            }
+            console.log(response.data);
          })
    }
 
 
    render() {
+
       return (
          <div>
             <div className="basket__title">Корзина покупок</div>
@@ -89,15 +84,14 @@ class Basket extends React.Component {
                   <button onClick={() => { this.GetOrders() }}>Показати усі замовлення</button>
                </div>
                <div className="basket__items">
-                  {
-                     this.props.result.map((elem, index) => {
-                        return (
-                           <div key={index} className="basket__item">
-                              <BasketItem food={elem} />
-                              <button id={index} onClick={() => { this.props.RemoveFromCard(index, elem.price) }} >Х</button>
-                           </div>
-                        )
-                     })
+                  {this.props.result.map((elem, index) => {
+                     return (
+                        <div key={index} className="basket__item">
+                           <BasketItem food={elem} />
+                           <button id={index} onClick={() => { this.props.RemoveFromCard(index, elem.price) }} >Х</button>
+                        </div>
+                     )
+                  })
                   }
                </div>
             </div>

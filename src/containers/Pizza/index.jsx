@@ -10,9 +10,15 @@ const Pizza = () => {
 
    React.useEffect(() => {
       getPizzas
-         .get("/pizzas.json")
+         .get("/menu.json")
          .then(response => {
-            setPizzas(response.data)
+            let arr=[]
+            response.data.map((elem) => {
+               if (elem.id == "pizza") {
+                  arr.push(elem)
+               }
+            })
+            setPizzas(arr)
          })
    }, []);
 

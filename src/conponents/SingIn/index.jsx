@@ -22,24 +22,7 @@ class SingIn extends React.Component {
       }
    }
 
-   // componentDidUpdate() {
-   //    let key = localStorage.getItem("id");
-   //    console.log(key);
-   //    if (this.state.id === undefined) {
-   //       this.setState({ id: key });
-   //       console.log("111");
-   //       console.log(this.state.id);
-   //    }
-   // }
-
-
-   render() {
-      const {
-         user,
-         signOut,
-         signInWithGoogle,
-      } = this.props;
-
+   componentDidUpdate() {
       var curentuser = firebase.auth().currentUser;
       if (curentuser != null) {
          var name = curentuser.displayName;
@@ -57,7 +40,6 @@ class SingIn extends React.Component {
                      console.log("elem", elem);
                      console.log("UID-->", uid);
                      console.log("RESPONSE", response.data[elem]);
-
                      return uid === elem;
                   })
                   console.log("bool-->", bool);
@@ -72,27 +54,16 @@ class SingIn extends React.Component {
                   }
                }
             })
-         // var UserRef = firebase.database().ref("/users");
-         // UserRef.orderByChild("uid").equalTo(`${curentuser.uid}`).once("value", function foo(snapshot) {
-         //    return console.log("USER KEY -->", snapshot.val());
-         // });
-
-
-         // UserRef.orderByChild('uid')
-         //    .equalTo(`${curentuser.uid}`)
-         //    .once('value')
-         //    .then(function (snapshot) {
-         //       let value = snapshot.val()
-         //       if (value) {
-         //          let key = Object.keys(value)[0];
-         //          console.log(key);
-         //          localStorage.setItem("id", key);
-         //       }
-         //    })
-
       }
 
+   }
 
+   render() {
+      const {
+         user,
+         signOut,
+         signInWithGoogle,
+      } = this.props;
 
       return (
          <div>
@@ -101,7 +72,6 @@ class SingIn extends React.Component {
                   ? <p>Hello, {user.displayName}</p >
                   : <p>Please sign in.</p>
             }
-            {console.log("THIS STATE-->", this.props.ID)}
             {
                user
                   ? <button onClick={signOut}>Sign out</button>

@@ -10,11 +10,17 @@ const Salad = () => {
 
    React.useEffect(() => {
       getSalad
-         .get("/salads.json")
-         .then(response => {
-            setSalads(response.data)
+      .get("/menu.json")
+      .then(response => {
+         let arr=[]
+         response.data.map((elem) => {
+            if (elem.id == "salad") {
+               arr.push(elem)
+            }
          })
-   }, []);
+         setSalads(arr)
+      })
+}, []);
 
    return (
       <div className="food__items">

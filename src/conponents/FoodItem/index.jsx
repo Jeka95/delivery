@@ -10,6 +10,7 @@ import "./index.scss";
 class FoodItem extends React.Component {
 
    render() {
+      console.log("this.prop-->s",this.props.result);
 
       return (
          <div className="food-block">
