@@ -1,7 +1,7 @@
 import React from 'react';
 
 import getPizzas from "../../instance";
-import FoodItem from "../../conponents/FoodItem"
+import FoodItem from "../../components/FoodItem"
 
 import "./index.scss";
 const Pizza = () => {
@@ -12,7 +12,7 @@ const Pizza = () => {
       getPizzas
          .get("/menu.json")
          .then(response => {
-            let arr=[]
+            let arr = []
             response.data.map((elem) => {
                if (elem.id == "pizza") {
                   arr.push(elem)

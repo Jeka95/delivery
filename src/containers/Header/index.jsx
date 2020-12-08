@@ -1,11 +1,11 @@
 import React from 'react';
 
 import "./index.scss";
-import Logo from "../../conponents/Logo";
-import Menu from '../../conponents/Menu';
-import Info from '../../conponents/Info';
-import Basket from "../../conponents/Basket"
-import SingIn from '../../conponents/SingIn';
+import Logo from "../../components/Logo";
+import Menu from '../../components/Menu';
+import Info from '../../components/Info';
+import Basket from "../../components/Basket"
+import SingIn from '../../components/SingIn';
 
 
 class Header extends React.Component {

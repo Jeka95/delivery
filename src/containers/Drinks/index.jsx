@@ -3,7 +3,7 @@ import React from 'react';
 
 
 import getDrinks from "../../instance";
-import FoodItem from "../../conponents/FoodItem"
+import FoodItem from "../../components/FoodItem"
 
 import "./index.scss";
 

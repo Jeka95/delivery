@@ -3,7 +3,7 @@ import React from 'react';
 
 import "./index.scss";
 import getItem from "../../instance";
-import FoodItem from "../../conponents/FoodItem"
+import FoodItem from "../../components/FoodItem"
 import PizzaIcon from '../../assets/pizza';
 import RoolIcon from '../../assets/Rool';
 import SusiSetIcon from '../../assets/SusiSet';

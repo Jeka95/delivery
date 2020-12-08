@@ -3,9 +3,9 @@ import { connect } from 'react-redux';
 
 
 import "./index.scss";
-import BasketItem from "../../conponents/BasketItem";
+import BasketItem from "../../components/BasketItem";
 import axiosOrder from "../../instance";
-import Orders from '../../conponents/Orders';
+import Orders from '../../components/Orders';
 
 
 class Basket extends React.Component {

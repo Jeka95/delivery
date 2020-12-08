@@ -1,7 +1,7 @@
 import React from 'react';
 
 import getSalad from "../../instance";
-import FoodItem from "../../conponents/FoodItem"
+import FoodItem from "../../components/FoodItem"
 
 import "./index.scss";
 const Salad = () => {
@@ -10,17 +10,17 @@ const Salad = () => {
 
    React.useEffect(() => {
       getSalad
-      .get("/menu.json")
-      .then(response => {
-         let arr=[]
-         response.data.map((elem) => {
-            if (elem.id == "salad") {
-               arr.push(elem)
-            }
+         .get("/menu.json")
+         .then(response => {
+            let arr = []
+            response.data.map((elem) => {
+               if (elem.id == "salad") {
+                  arr.push(elem)
+               }
+            })
+            setSalads(arr)
          })
-         setSalads(arr)
-      })
-}, []);
+   }, []);
 
    return (
       <div className="food__items">
