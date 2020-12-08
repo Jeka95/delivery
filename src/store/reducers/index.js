@@ -47,11 +47,11 @@ export const rootReducer = (state = initialState, action) => {
             }
 
         case 'REM_FROM_CARD':
-            newarr = [...state.results];
+            let newarrr = [...state.results];
             newarr.splice(action.payload.index, 1);
             return {
                 ...state,
-                results: newarr,
+                results: newarrr,
                 counter: state.counter - action.payload.number,
                 resultPrice: state.resultPrice - (action.payload.price * action.payload.number),
             }
