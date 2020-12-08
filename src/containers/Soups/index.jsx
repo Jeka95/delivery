@@ -16,7 +16,13 @@ const Soups = () => {
       getSoup
          .get("/soups.json")
          .then(response => {
-            setSoups(response.data)
+            let arr = []
+            response.data.map((elem) => {
+               if (elem.id == "soup") {
+                  arr.push(elem)
+               }
+            })
+            setSoups(arr)
          })
    }, []);
 

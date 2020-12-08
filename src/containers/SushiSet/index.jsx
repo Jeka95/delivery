@@ -16,7 +16,13 @@ const Sushi = () => {
       getSushiSet
          .get("/SusiSet.json")
          .then(response => {
-            setSushiSet(response.data)
+            let arr = []
+            response.data.map((elem) => {
+               if (elem.id == "sushiset") {
+                  arr.push(elem)
+               }
+            })
+            setSushiSet(arr)
          })
    }, []);
 

@@ -16,7 +16,13 @@ const Sushi = () => {
       getRool
          .get("/rools.json")
          .then(response => {
-            setRools(response.data)
+            let arr = []
+            response.data.map((elem) => {
+               if (elem.id == "sushi") {
+                  arr.push(elem)
+               }
+            })
+            setRools(arr)
          })
    }, []);
 

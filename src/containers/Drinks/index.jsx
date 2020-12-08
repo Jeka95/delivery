@@ -16,7 +16,13 @@ const Drinks = () => {
       getDrinks
          .get("/drinks.json")
          .then(response => {
-            setDrinks(response.data)
+            let arr = []
+            response.data.map((elem) => {
+               if (elem.id == "drink") {
+                  arr.push(elem)
+               }
+            })
+            setDrinks(arr)
          })
    }, []);
 
