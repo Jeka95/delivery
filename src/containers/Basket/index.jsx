@@ -5,21 +5,23 @@ import { connect } from 'react-redux';
 import "./index.scss";
 import BasketItem from "../../conponents/BasketItem";
 import axiosOrder from "../../instance";
+import Orders from '../../conponents/Orders';
 
 
 class Basket extends React.Component {
    constructor(props) {
       super(props);
       this.state = {
+         items: [],
          name: "",
          tel: "",
          city: "",
          street: "",
          house: "",
+         showOrders: false,
       };
       this.handleInputChange = this.handleInputChange.bind(this);
    }
-
    handleInputChange(event) {
       const target = event.target;
       const value = target.value;
@@ -28,6 +30,25 @@ class Basket extends React.Component {
       this.setState({
          [name]: value
       });
+   }
+
+   ShowOrders = () => {
+      let arr = []
+      axiosOrder
+         .get(`/users/${this.props.ID}/orders.json`)
+         .then(response => {
+            for (let key in response.data) {
+               arr.push(response.data[key]);
+               console.log(response.data[key]);
+
+            }
+            this.setState({
+               items: arr
+            })
+         })
+      this.setState({
+         showOrders: !this.state.showOrders
+      })
    }
 
    ToOrderHendler = () => {
@@ -49,17 +70,6 @@ class Basket extends React.Component {
       this.props.PostOrder();
    }
 
-   GetOrders = () => {
-      axiosOrder
-         .get(`/users/${this.props.ID}/orders.json`)
-         .then(response => {
-            for (let key in response.data) {
-               console.log(response.data[key]);
-            }
-         })
-   }
-
-
    render() {
 
       return (
@@ -76,7 +86,8 @@ class Basket extends React.Component {
                      <input name="house" type="text" className="basket__house input" placeholder="Будинок" onChange={this.handleInputChange} value={this.state.house} />
                   </form>
                   <button onClick={this.ToOrderHendler}>Оформити замовлення</button>
-                  <button onClick={() => { this.GetOrders() }}>Показати усі замовлення</button>
+                  <button onClick={this.ShowOrders}>Показати усі замовлення</button>
+                  {this.state.showOrders ? <Orders items={this.state.items} /> : null}
                </div>
                <div className="basket__items">
                   {console.log(this.props.result)}
