@@ -14,7 +14,7 @@ const Soups = () => {
 
    React.useEffect(() => {
       getSoup
-         .get("/soups.json")
+         .get("/menu.json")
          .then(response => {
             let arr = []
             response.data.map((elem) => {

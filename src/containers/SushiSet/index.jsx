@@ -14,7 +14,7 @@ const Sushi = () => {
 
    React.useEffect(() => {
       getSushiSet
-         .get("/SusiSet.json")
+         .get("/menu.json")
          .then(response => {
             let arr = []
             response.data.map((elem) => {

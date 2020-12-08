@@ -14,7 +14,7 @@ const Drinks = () => {
 
    React.useEffect(() => {
       getDrinks
-         .get("/drinks.json")
+         .get("/menu.json")
          .then(response => {
             let arr = []
             response.data.map((elem) => {
