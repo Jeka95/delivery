@@ -12,7 +12,8 @@ const BasletItem = ({ food }) => {
             <span className="basket-block__weight">{food.weight}</span>
          </div>
          <div className="basket-block__bottom">
-            <div className="basket-block__price"> {food.price} грн</div>
+            <div className="basket-block__number">Кількість: {food.number}</div>
+            <div className="basket-block__price"> {food.price * food.number} грн</div>
          </div>
       </div >
    );

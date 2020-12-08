@@ -46,21 +46,16 @@ class Basket extends React.Component {
          street: "",
          house: "",
       });
-
-
       this.props.PostOrder();
-
-
-      console.log(this.props.result);
-
-      console.log(orderResult);
    }
 
    GetOrders = () => {
       axiosOrder
          .get(`/users/${this.props.ID}/orders.json`)
          .then(response => {
-            console.log(response.data);
+            for (let key in response.data) {
+               console.log(response.data[key]);
+            }
          })
    }
 
@@ -84,16 +79,18 @@ class Basket extends React.Component {
                   <button onClick={() => { this.GetOrders() }}>Показати усі замовлення</button>
                </div>
                <div className="basket__items">
+                  {console.log(this.props.result)}
                   {this.props.result.map((elem, index) => {
                      return (
                         <div key={index} className="basket__item">
                            <BasketItem food={elem} />
-                           <button id={index} onClick={() => { this.props.RemoveFromCard(index, elem.price) }} >Х</button>
+                           <button id={index} onClick={() => { this.props.RemoveFromCard(index, elem.price, elem.number) }} >Х</button>
                         </div>
                      )
                   })
                   }
                </div>
+               <div className="basket__total-price">Загальна ціна: {this.props.resultPrice}</div>
             </div>
          </div >
       );
@@ -110,7 +107,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
    return {
-      RemoveFromCard: (index, price) => dispatch({ type: 'REM_FROM_CARD', payload: { index, price } }),
+      RemoveFromCard: (index, price, number) => dispatch({ type: 'REM_FROM_CARD', payload: { index, price, number } }),
       PostOrder: () => dispatch({ type: "POST_ORDER", payload: [] })
    }
 }
