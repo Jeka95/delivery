@@ -39,8 +39,6 @@ class Basket extends React.Component {
          .then(response => {
             for (let key in response.data) {
                arr.push(response.data[key]);
-               console.log(response.data[key]);
-
             }
             this.setState({
                items: arr
@@ -87,13 +85,13 @@ class Basket extends React.Component {
                   </form>
                   <button onClick={this.ToOrderHendler}>Оформити замовлення</button>
                   <button onClick={this.ShowOrders}>Показати усі замовлення</button>
-                  {this.state.showOrders ? <Orders items={this.state.items} /> : null}
                </div>
                <div className="basket__items">
-                  {console.log(this.props.result)}
                   {this.props.result.map((elem, index) => {
                      return (
                         <div key={index} className="basket__item">
+                           <button onClick={() => { this.props.RemItem(elem, index) }}>-</button>
+                           <button onClick={() => { this.props.AddItem(elem, index) }}>+</button>
                            <BasketItem food={elem} />
                            <button id={index} onClick={() => { this.props.RemoveFromCard(index, elem.price, elem.number) }} >Х</button>
                         </div>
@@ -103,6 +101,7 @@ class Basket extends React.Component {
                </div>
                <div className="basket__total-price">Загальна ціна: {this.props.resultPrice}</div>
             </div>
+            {this.state.showOrders ? <Orders items={this.state.items} /> : null}
          </div >
       );
    }
@@ -119,7 +118,9 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
    return {
       RemoveFromCard: (index, price, number) => dispatch({ type: 'REM_FROM_CARD', payload: { index, price, number } }),
-      PostOrder: () => dispatch({ type: "POST_ORDER", payload: [] })
+      PostOrder: () => dispatch({ type: "POST_ORDER", payload: [] }),
+      AddItem: (elem, index) => dispatch({ type: 'ADD_ITEM', payload: elem }),
+      RemItem: (elem, index) => dispatch({ type: 'REM_ITEM', payload: { elem, index } }),
    }
 }
 
