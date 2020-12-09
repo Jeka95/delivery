@@ -1,4 +1,4 @@
-const initialState = { foodItem: {}, results: [], counter: 0, resultPrice: 0, curentUserId: "", }
+const initialState = { foodItem: {}, results: [], counter: 0, resultPrice: 0, curentUserId: "", favorite: [] }
 
 export const rootReducer = (state = initialState, action) => {
     switch (action.type) {
@@ -48,7 +48,7 @@ export const rootReducer = (state = initialState, action) => {
 
         case 'REM_FROM_CARD':
             let newarrr = [...state.results];
-            newarr.splice(action.payload.index, 1);
+            newarrr.splice(action.payload.index, 1);
             return {
                 ...state,
                 results: newarrr,
@@ -66,6 +66,37 @@ export const rootReducer = (state = initialState, action) => {
                 results: action.payload,
                 counter: 0,
                 resultPrice: 0,
+            }
+        case 'ADD_TO_FAVORITE':
+            let chekedItem = [...state.favorite];
+            let check = state.favorite.some((elem) => elem.name === action.payload.name);
+            console.log(check);
+            if (!check) {
+                action.payload.bool = true;
+                chekedItem = [...state.favorite, action.payload]
+            } else {
+                action.payload.bool = false;
+                const isSame = (element) => element.name === action.payload.name;
+                let indexsamename = state.favorite.findIndex(isSame)
+
+                chekedItem.splice(indexsamename, 1);
+            }
+            return {
+                ...state,
+                favorite: chekedItem
+
+            }
+        case 'REMOVE_FROM_FAVORITE':
+            action.payload.bool = false;
+            const isSameName = (element) => element.name === action.payload.name;
+            let indexfav = state.favorite.findIndex(isSameName)
+            let arrfav = state.favorite;
+            arrfav.splice(indexfav, 1);
+            return {
+                ...state,
+                favorite: arrfav,
+
+
             }
         default:
             return state

@@ -6,11 +6,9 @@ import "./index.scss";
 
 
 
-
 class FoodItem extends React.Component {
 
    render() {
-      console.log("this.prop-->s",this.props.result);
 
       return (
          <div className="food-block">
@@ -23,7 +21,9 @@ class FoodItem extends React.Component {
             <div className="food-block__bottom">
                <div className="food-block__price"> {this.props.food.price} грн</div>
                <button onClick={() => { this.props.AddToCard(this.props.food) }}>Замовити</button>
-               <button>Улюблене</button>
+
+               <button onClick={() => { this.props.food.bool ? this.props.RemoveFavorite(this.props.food) : this.props.AddFavorite(this.props.food) }}>Улюблене</button>
+
             </div>
          </div >
       );
@@ -32,14 +32,16 @@ class FoodItem extends React.Component {
 
 const mapStateToProps = (state) => {
    return {
-      fooditem: state.foodItem,
-      result: state.results
+
+      favorite: state.favorite,
    }
 }
 
 const mapDispatchToProps = (dispatch) => {
    return {
-      AddToCard: (obj) => dispatch({ type: 'ADD_TO_CARD', payload: obj })
+      AddToCard: (obj) => dispatch({ type: 'ADD_TO_CARD', payload: obj }),
+      AddFavorite: (obj) => dispatch({ type: 'ADD_TO_FAVORITE', payload: obj }),
+      RemoveFavorite: (obj) => dispatch({ type: 'REMOVE_FROM_FAVORITE', payload: obj })
    }
 }
 

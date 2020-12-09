@@ -17,7 +17,9 @@ const Info = () => {
                <InfoItem link="/contacts">Контакти</InfoItem>
                <InfoItem link="/about">Про нас</InfoItem>
                <InfoItem link="/howtoorder">Як замовити</InfoItem>
+               <InfoItem link="/favorite">Улюблене</InfoItem>
                <InfoItem link="/certificate">Сертифікати</InfoItem>
+
             </ul>
          </nav>
       </div>

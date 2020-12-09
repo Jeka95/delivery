@@ -16,6 +16,7 @@ import HowOrder from "./containers/HowOrder";
 import Certificate from "./containers/Certificate";
 import Basket from "./containers/Basket";
 import Footer from './containers/Footer';
+import Favorite from './containers/Favorite';
 
 
 
@@ -35,6 +36,7 @@ function App() {
             <Route path="/soups" component={Soups}></Route>
             <Route path="/salad" component={Salad}></Route>
             <Route path="/drinks" component={Drinks}></Route>
+            <Route path="/favorite" component={Favorite}></Route>
             <Route path="/about" component={About}></Route>
             <Route path="/contacts" component={Contacts}></Route>
             <Route path="/howtoorder" component={HowOrder}></Route>

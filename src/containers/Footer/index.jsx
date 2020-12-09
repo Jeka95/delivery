@@ -1,4 +1,7 @@
 import React from 'react';
+
+
+import Info from '../../components/Info';
 import "./index.scss";
 
 const Footer = () => {
