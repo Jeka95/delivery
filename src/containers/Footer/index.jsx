@@ -3,7 +3,9 @@ import "./index.scss";
 
 const Footer = () => {
    return (
-      <div className="footer">Всі права захищені</div>
+      <footer className="footer">
+         <div>всі права захищені</div>
+      </footer>
    );
 }
 
