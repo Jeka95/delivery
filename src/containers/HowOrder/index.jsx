@@ -10,7 +10,9 @@ class HowOrder extends React.Component {
    }
    render() {
       return (
-         <div>Як замовити</div>
+         <div className="content">
+            <div>Як замовити</div>
+         </div>
       );
    }
 }

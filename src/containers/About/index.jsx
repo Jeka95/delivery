@@ -10,7 +10,9 @@ class About extends React.Component {
    }
    render() {
       return (
-         <div>Про нас</div>
+         <div className="content">
+            <div>Про нас</div>
+         </div>
       );
    }
 }

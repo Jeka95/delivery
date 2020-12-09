@@ -10,7 +10,9 @@ class Contacts extends React.Component {
    }
    render() {
       return (
-         <div>Контакти</div>
+         <div className="content">
+            <div>Контакти</div>
+         </div>
       );
    }
 }

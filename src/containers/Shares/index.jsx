@@ -11,25 +11,6 @@ import SoupIcon from '../../assets/Soup';
 import SaladIcon2 from '../../assets/salat2';
 import DrinkIcon from '../../assets/Drink';
 
-// const Shares = () => {
-//    let reg = /salad/;
-//    const [items, setItems] = React.useState([]);
-
-//    React.useEffect(() => {
-
-//       getItem
-//       .get("/menu.json")
-//       .then(response => {
-//          let arr=[]
-//          response.data.map((elem) => {
-//             console.dir(reg);
-//             if ( reg.test(elem.id))   {
-//                arr.push(elem)
-//             }
-//          })
-//          setItems(arr)
-//       })
-// }, []);
 class Shares extends React.Component {
    constructor(props) {
       super(props);
@@ -86,7 +67,7 @@ class Shares extends React.Component {
    render() {
       return (
 
-         <div>
+         <div className="content">
             <div>
                <button id="pizza" onClick={this.ChooseMenu}> <PizzaIcon /> Піца</button>
                <button id="rool" onClick={this.ChooseMenu}> <RoolIcon />Ролли</button>
@@ -111,26 +92,3 @@ class Shares extends React.Component {
 
 export default Shares;
 
-//    return (
-
-//       <div>
-//          <button onClick={() => {  
-//             reg = /pizza/;
-//             console.log(reg);
-//             React.useEffect;
-//          }}>Pizza</button>
-
-//       <div className="food__items">
-//          {
-//             items.map((food) => {
-//                return (
-//                   <FoodItem key={food.name} food={food} />
-//                )
-//             })
-//          }
-//          </div>
-//          </div>
-//    );
-// }
-
-// export default Shares;

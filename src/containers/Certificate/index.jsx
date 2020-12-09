@@ -10,7 +10,9 @@ class Certificate extends React.Component {
    }
    render() {
       return (
-         <div>Cертифікати</div>
+         <div className="content">
+            <div>Cертифікати</div>
+         </div>
       );
    }
 }

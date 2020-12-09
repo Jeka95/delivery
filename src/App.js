@@ -15,6 +15,7 @@ import Contacts from "./containers/Contacts";
 import HowOrder from "./containers/HowOrder";
 import Certificate from "./containers/Certificate";
 import Basket from "./containers/Basket";
+import Footer from './containers/Footer';
 
 
 
@@ -25,20 +26,23 @@ function App() {
     <div className="App">
       <Router>
         <Header />
-        <Switch>
-          <Route path="/" exact component={Shares} ></Route>
-          <Route path="/pizza" component={Pizza}></Route>
-          <Route path="/sushi" component={Sushi}></Route>
-          <Route path="/sushiset" component={SushiSet}></Route>
-          <Route path="/soups" component={Soups}></Route>
-          <Route path="/salad" component={Salad}></Route>
-          <Route path="/drinks" component={Drinks}></Route>
-          <Route path="/about" component={About}></Route>
-          <Route path="/contacts" component={Contacts}></Route>
-          <Route path="/howtoorder" component={HowOrder}></Route>
-          <Route path="/certificate" component={Certificate}></Route>
-          <Route path="/basket" component={Basket}></Route>
-        </Switch>
+        <div className="wraper">
+          <Switch >
+            <Route path="/" exact component={Shares} ></Route>
+            <Route path="/pizza" component={Pizza}></Route>
+            <Route path="/sushi" component={Sushi}></Route>
+            <Route path="/sushiset" component={SushiSet}></Route>
+            <Route path="/soups" component={Soups}></Route>
+            <Route path="/salad" component={Salad}></Route>
+            <Route path="/drinks" component={Drinks}></Route>
+            <Route path="/about" component={About}></Route>
+            <Route path="/contacts" component={Contacts}></Route>
+            <Route path="/howtoorder" component={HowOrder}></Route>
+            <Route path="/certificate" component={Certificate}></Route>
+            <Route path="/basket" component={Basket}></Route>
+          </Switch>
+          <Footer />
+        </div>
       </Router>
     </div>
   );

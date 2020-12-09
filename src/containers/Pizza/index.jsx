@@ -23,14 +23,16 @@ const Pizza = () => {
    }, []);
 
    return (
-      <div className="food__items">
-         {
-            pizzas.map((food) => {
-               return (
-                  <FoodItem key={food.name} food={food} />
-               )
-            })
-         }
+      <div className="content">
+         <div className="food__items">
+            {
+               pizzas.map((food) => {
+                  return (
+                     <FoodItem key={food.name} food={food} />
+                  )
+               })
+            }
+         </div>
       </div>
    );
 }

@@ -27,15 +27,17 @@ const Soups = () => {
    }, []);
 
    return (
-      <div className="food__items">
-         {
-            soups.map((food) => {
-               return (
-                  <FoodItem key={food.name} food={food} />
-               )
-            })
-         }
-      </div>
+      <div className="content">
+         <div className="food__items">
+            {
+               soups.map((food) => {
+                  return (
+                     <FoodItem key={food.name} food={food} />
+                  )
+               })
+            }
+         </div>
+      </div >
    );
 }
 

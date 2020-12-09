@@ -23,14 +23,16 @@ const Salad = () => {
    }, []);
 
    return (
-      <div className="food__items">
-         {
-            salads.map((food) => {
-               return (
-                  <FoodItem key={food.name} food={food} />
-               )
-            })
-         }
+      <div className="content">
+         <div className="food__items">
+            {
+               salads.map((food) => {
+                  return (
+                     <FoodItem key={food.name} food={food} />
+                  )
+               })
+            }
+         </div>
       </div>
    );
 }
