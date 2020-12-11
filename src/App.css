@@ -1,3 +1,9 @@
+@import url("https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Langar&display=swap");
+
+body {
+  font-family: "Dancing Script", cursive;
+}
 .App {
   min-height: 100vh;
   overflow: hidden;

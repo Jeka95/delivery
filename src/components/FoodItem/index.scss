@@ -1,13 +1,105 @@
 .food-block {
-   max-width: 420px;
+   width: 400px;
+   border: 3px solid #8b898923;
+   border-radius: 20px;
+   margin: 10px;
+   padding: 10px;
 
    &__image {
       max-width: 400px;
       min-height: auto;
+      padding-bottom: 10px;
    }
 
    &__info {
       display: flex;
       flex-direction: column;
    }
+   &__title {
+      font-size: 30px;
+      text-align: right;
+      padding-right: 5px;
+   }
+
+   &__weight {
+      opacity: 0.6;
+      margin-bottom: 5px;
+   }
+   &__ingredients {
+      text-align: center;
+      margin-bottom: 10px;
+   }
+
+   &__bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 5px;
+   }
+   &__price {
+      font-size: 30px;
+      font-family: "Langar", cursive;
+      font-weight: 400;
+   }
+   &__btnAdd {
+      background-color: green;
+      padding: 10px 25px;
+      font-size: 20px;
+      border-radius: 10px;
+      color: white;
+      box-shadow: 0 5px 0px #09551f;
+      transition-duration: 500ms;
+   }
+   &__btnAdd:hover {
+      transform: translate(0px, 3px);
+      box-shadow: 0 3px 0px #09551f;
+   }
+
+   &__btnLike {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: white;
+      border-radius: 50%;
+      border: 3px solid #09551f;
+      box-shadow: 0 3px 0px #063b15;
+      width: 50px;
+      height: 50px;
+      transition-duration: 500ms;
+   }
+   &__btnLike:hover {
+      .like {
+         fill: #b61616;
+      }
+      border: 3px solid #b61616;
+      box-shadow: 0 0px 0px #b61616;
+      transform: translate(0px, 3px);
+   }
+   &__btnLike:active {
+      .like {
+         fill: #b61616;
+      }
+      border: 3px solid #b61616;
+      box-shadow: 0 0px 0px #b61616;
+      transform: translate(0px, 3px);
+   }
+   &__btnLike-active {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: white;
+      border-radius: 50%;
+      border: 3px solid #09551f;
+      box-shadow: 0 3px 0px #063b15;
+      width: 50px;
+      height: 50px;
+      transition-duration: 500ms;
+      .like {
+         fill: #b61616;
+      }
+   }
+}
+.like {
+   transition-duration: 500ms;
+   fill: green;
 }

@@ -20,7 +20,7 @@ class FavoriteItem extends React.Component {
             </div>
             <div className="food-block__bottom">
                <div className="food-block__price"> {this.props.food.price} грн</div>
-               <button onClick={() => { this.props.AddToCard(this.props.food) }}>Замовити</button>
+               <button className="food-block__btnAdd" onClick={() => { this.props.AddToCard(this.props.food) }}>Замовити</button>
             </div>
          </div >
       );

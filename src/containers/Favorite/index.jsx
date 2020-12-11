@@ -21,8 +21,9 @@ class Favorite extends React.Component {
             <div className="food__items">
                {
                   this.props.favorite.map((food) => {
-                     return (<div key={food.name}>
-                        <button onClick={() => { this.props.RemoveFavorite(food) }}>X</button>
+                     return (<div className="food__item" key={food.name}>
+                        <button className="btn-remove" onClick={() => { this.props.RemoveFavorite(food) }}><span className="cl-btn-7"></span></button>
+
                         <FavoriteItem food={food} />
                      </div>
                      )

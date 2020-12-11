@@ -7,7 +7,8 @@ import { connect } from 'react-redux';
 
 import axiosUser from "../../instance"
 import FirebaseConfig from '../../FirebaseConfig';
-import InfoItem from "../Info/InfoItem"
+import InfoItem from "../Info/InfoItem";
+import Like from "../../assets/like";
 
 
 
@@ -86,7 +87,7 @@ class SingIn extends React.Component {
             }
             {
                user
-                  ? <InfoItem link="/favorite">Улюблене</InfoItem>
+                  ? <InfoItem link="/favorite"><Like /> Улюблене</InfoItem>
                   : null
             }
          </div >

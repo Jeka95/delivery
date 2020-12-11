@@ -1,0 +1,61 @@
+.food__item {
+   position: relative;
+}
+.btn-remove {
+   position: absolute;
+   right: 40px;
+   top: 20px;
+   background-color: transparent;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   // border: 3px solid red;
+   // border-radius: 50%;
+   // width: 40px;
+   // height: 40px;
+   // font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+   // font-weight: 700;
+   // font-size: 20px;
+}
+
+.cl-btn-7 {
+   display: block;
+   width: 40px;
+   height: 40px;
+   border-radius: 40px;
+   position: relative;
+   z-index: 1;
+   cursor: pointer;
+}
+.cl-btn-7:before {
+   content: "+";
+   color: #d61e55;
+   position: absolute;
+   z-index: 2;
+   transform: rotate(45deg);
+   font-size: 50px;
+   line-height: 1;
+   top: -8px;
+   left: 15px;
+   transition: all 0.3s cubic-bezier(0.77, 0, 0.2, 0.85);
+}
+.cl-btn-7:after {
+   content: "";
+   position: absolute;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   border-radius: 100%;
+   background: #d61e55;
+   z-index: 1;
+   transition: all 0.3s cubic-bezier(0.77, 0, 0.2, 0.85);
+   transform: scale(0.01);
+}
+.cl-btn-7:hover:after {
+   transform: scale(1);
+}
+.cl-btn-7:hover:before {
+   transform: scale(0.8) rotate(45deg);
+   color: #fff;
+}
