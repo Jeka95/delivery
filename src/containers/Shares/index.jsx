@@ -1,15 +1,11 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
 
 import "./index.scss";
 import getItem from "../../instance";
 import FoodItem from "../../components/FoodItem"
-import PizzaIcon from '../../assets/pizza';
-import RoolIcon from '../../assets/Rool';
-import SusiSetIcon from '../../assets/SusiSet';
-import SoupIcon from '../../assets/Soup';
-import SaladIcon2 from '../../assets/salat2';
-import DrinkIcon from '../../assets/Drink';
+
 
 class Shares extends React.Component {
    constructor(props) {
@@ -35,31 +31,10 @@ class Shares extends React.Component {
                items: arr
             })
          })
+
    }
-   ChooseMenu = (e) => {
-      console.dir(e.target.id);
-      console.log(e);
-      console.dir(e);
-      let regex = new RegExp(`${e.target.id}`)
-      console.dir(regex);
-      let arr = []
-      this.setState({
-         reg: regex
-      })
-      getItem
-         .get("/menu.json")
-         .then(response => {
-            response.data.map((elem) => {
-               console.log();
-               if (this.state.reg.test(elem.id)) {
-                  arr.push(elem)
-               }
-            })
-            this.setState({
-               items: arr
-            })
-         })
-   }
+
+
 
 
 
@@ -68,14 +43,6 @@ class Shares extends React.Component {
       return (
 
          <div className="content">
-            <div>
-               <button id="pizza" onClick={this.ChooseMenu}> <PizzaIcon /> Піца</button>
-               <button id="rool" onClick={this.ChooseMenu}> <RoolIcon />Ролли</button>
-               <button id="sushiset" onClick={this.ChooseMenu}><SusiSetIcon /> Суші Сети</button>
-               <button id="soup" onClick={this.ChooseMenu}><SoupIcon />Супи</button>
-               <button id="salad" onClick={this.ChooseMenu}><SaladIcon2 /> Салати</button>
-               <button id="drink" onClick={this.ChooseMenu}><DrinkIcon />  Напої</button>
-            </div>
             <div className="food__items">
                {
                   this.state.items.map((food) => {
@@ -90,5 +57,18 @@ class Shares extends React.Component {
    }
 }
 
-export default Shares;
+const mapStateToProps = (state) => {
+   return {
+      UID: state.curentUserId,
+   }
+}
+
+const mapDispatchToProps = (dispatch) => {
+   return {
+
+   }
+}
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(Shares);
 

@@ -1,4 +1,7 @@
+import axiosFavorite from "../../instance";
+
 const initialState = { foodItem: {}, results: [], counter: 0, resultPrice: 0, curentUserId: "", favorite: [] }
+
 
 export const rootReducer = (state = initialState, action) => {
     switch (action.type) {
@@ -8,10 +11,13 @@ export const rootReducer = (state = initialState, action) => {
             }
             state.results.map((elem) => {
                 if (elem.name === action.payload.name) {
-                    action.payload.number = action.payload.number + 1;
+
+                    return action.payload.number = action.payload.number + 1;
                 }
+                return action.payload.number
             })
             return {
+                ...state,
                 foodItem: action.payload,
                 results: [...new Set([...state.results, action.payload])],
                 counter: state.counter + 1,
@@ -20,8 +26,9 @@ export const rootReducer = (state = initialState, action) => {
         case "ADD_ITEM":
             state.results.map((e) => {
                 if (e.name === action.payload.name) {
-                    action.payload.number = action.payload.number + 1;
+                    return action.payload.number = action.payload.number + 1;
                 }
+                return action.payload.number
             })
             return {
                 ...state,
@@ -60,6 +67,11 @@ export const rootReducer = (state = initialState, action) => {
                 ...state,
                 curentUserId: action.payload,
             }
+        case 'CUR_USER_FAVORITE':
+            return {
+                ...state,
+                favorite: action.payload,
+            }
         case 'POST_ORDER':
             return {
                 ...state,
@@ -70,7 +82,6 @@ export const rootReducer = (state = initialState, action) => {
         case 'ADD_TO_FAVORITE':
             let chekedItem = [...state.favorite];
             let check = state.favorite.some((elem) => elem.name === action.payload.name);
-            console.log(check);
             if (!check) {
                 action.payload.bool = true;
                 chekedItem = [...state.favorite, action.payload]
@@ -78,9 +89,11 @@ export const rootReducer = (state = initialState, action) => {
                 action.payload.bool = false;
                 const isSame = (element) => element.name === action.payload.name;
                 let indexsamename = state.favorite.findIndex(isSame)
-
                 chekedItem.splice(indexsamename, 1);
             }
+            var items = chekedItem
+            axiosFavorite
+                .patch(`/users/${state.curentUserId}/favorite.json`, { items })
             return {
                 ...state,
                 favorite: chekedItem
@@ -90,8 +103,11 @@ export const rootReducer = (state = initialState, action) => {
             action.payload.bool = false;
             const isSameName = (element) => element.name === action.payload.name;
             let indexfav = state.favorite.findIndex(isSameName)
-            let arrfav = state.favorite;
+            let arrfav = [...state.favorite];
             arrfav.splice(indexfav, 1);
+            items = arrfav;
+            axiosFavorite
+                .patch(`/users/${state.curentUserId}/favorite.json`, { items })
             return {
                 ...state,
                 favorite: arrfav,

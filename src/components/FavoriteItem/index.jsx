@@ -6,7 +6,7 @@ import "./index.scss";
 
 
 
-class FoodItem extends React.Component {
+class FavoriteItem extends React.Component {
 
    render() {
 
@@ -21,10 +21,6 @@ class FoodItem extends React.Component {
             <div className="food-block__bottom">
                <div className="food-block__price"> {this.props.food.price} грн</div>
                <button onClick={() => { this.props.AddToCard(this.props.food) }}>Замовити</button>
-               {console.log("favorite bool-->", this.props.food.bool)}
-               {console.log("FAVORITE-->", this.props.favorite)}
-               <button onClick={() => { this.props.food.bool ? this.props.RemoveFavorite(this.props.food) : this.props.AddFavorite(this.props.food) }}>Улюблене</button>
-
             </div>
          </div >
       );
@@ -34,17 +30,13 @@ class FoodItem extends React.Component {
 const mapStateToProps = (state) => {
    return {
 
-      favorite: state.favorite,
    }
 }
 
 const mapDispatchToProps = (dispatch) => {
    return {
       AddToCard: (obj) => dispatch({ type: 'ADD_TO_CARD', payload: obj }),
-      AddFavorite: (obj) => dispatch({ type: 'ADD_TO_FAVORITE', payload: obj }),
-      RemoveFavorite: (obj) => dispatch({ type: 'REMOVE_FROM_FAVORITE', payload: obj })
    }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(FoodItem);
-
+export default connect(mapStateToProps, mapDispatchToProps)(FavoriteItem);

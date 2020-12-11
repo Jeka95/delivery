@@ -2,34 +2,51 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import "./index.scss";
-import getFavorite from "../../instance";
-import FoodItem from "../../components/FoodItem";
+import FavoriteItem from '../../components/FavoriteItem';
 
-const Favorite = () => {
-   const [favorite, setFavorite] = React.useState([]);
 
-   React.useEffect(() => {
-      getFavorite
-         .get("/menu.json")
-         .then(response => {
-            console.log(response.data);
-            setFavorite(response.data)
-         })
-   }, []);
+class Favorite extends React.Component {
+   constructor(props) {
+      super(props);
+      this.state = {
+      }
+   }
 
-   return (
-      <div className="content">
-         <div>Улюблене</div>
-         <div className="food__items">
-            {
-               favorite.map((food) => {
-                  return (
-                     <FoodItem key={food.name} food={food} />
-                  )
-               })
-            }
+
+
+   render() {
+      return (
+         <div className="content">
+            <div>Улюблене</div>
+            {  console.log(this.props.favorite)}
+            <div className="food__items">
+               {
+                  this.props.favorite.map((food) => {
+                     return (<div key={food.name}>
+                        <button onClick={() => { this.props.RemoveFavorite(food) }}>X</button>
+                        <FavoriteItem food={food} />
+                     </div>
+                     )
+                  })
+               }
+            </div>
          </div>
-      </div>
-   );
+      );
+   }
 }
-export default Favorite;
+
+
+
+const mapStateToProps = (state) => {
+   return {
+      ID: state.curentUserId,
+      favorite: state.favorite,
+   }
+}
+const mapDispatchToProps = (dispatch) => {
+   return {
+
+      RemoveFavorite: (obj) => dispatch({ type: 'REMOVE_FROM_FAVORITE', payload: obj })
+   }
+}
+export default connect(mapStateToProps, mapDispatchToProps)(Favorite);
