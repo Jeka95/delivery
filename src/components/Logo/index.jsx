@@ -8,8 +8,8 @@ import LogoIcon from "../../assets/logo.png"
 
 const Logo = () => {
    return (
-      <Link to="/">
-         <img src={LogoIcon} alt="" />
+      <Link className="logo" to="/">
+         <img className="logo__icon" src={LogoIcon} alt="" />
       </Link>
 
    );

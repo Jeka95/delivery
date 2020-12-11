@@ -16,7 +16,7 @@ const Menu = () => {
    return (
       <div>
          <div className="burger" onClick={() => setMenuActive(!menuActive)}>
-            <span className={menuActive ? "burger__span active" : "burger__span"}><span className="burger__name">Меню</span></span>
+            <span className={menuActive ? "burger__span active" : "burger__span"}><span className="burger__name"></span></span>
          </div>
          <nav className={menuActive ? "menu active" : "menu"} >
             <ul className="menu__items" onClick={() => setMenuActive(false)}>

@@ -18,11 +18,11 @@ class Header extends React.Component {
 
       return (
          <header className="header">
-            < Logo />
-            <Menu />
             <Info />
-            <Basket />
+            < Logo />
             <SingIn />
+            <Basket />
+            <Menu />
          </header>
       );
    }
