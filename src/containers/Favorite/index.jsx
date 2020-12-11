@@ -18,7 +18,6 @@ class Favorite extends React.Component {
       return (
          <div className="content">
             <div>Улюблене</div>
-            {  console.log(this.props.favorite)}
             <div className="food__items">
                {
                   this.props.favorite.map((food) => {

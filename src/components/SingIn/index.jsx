@@ -54,7 +54,6 @@ class SingIn extends React.Component {
                         .get(`/users/${this.props.ID}/favorite.json`)
                         .then((response) => {
                            if (response.data !== null) {
-                              console.log("from server-->", Object.values(response.data)[0]);
                               this.props.GurentUserFavorite(Object.values(response.data)[0]);
                            }
                         })
