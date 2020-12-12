@@ -9,7 +9,7 @@ import "./index.scss"
 import axiosUser from "../../instance"
 import FirebaseConfig from '../../FirebaseConfig';
 import InfoItem from "../Info/InfoItem";
-import Like from "../../assets/like";
+import FavHeader from '../../assets/award';
 
 
 
@@ -88,7 +88,7 @@ class SingIn extends React.Component {
             }
             {
                user
-                  ? <InfoItem className="auth__favorite" link="/favorite">< Like className="auth__icon" /></InfoItem>
+                  ? <InfoItem className="auth__favorite" link="/favorite">Улюблені страви <FavHeader /> </InfoItem>
                   : null
             }
          </div >
