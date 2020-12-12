@@ -1,30 +1,27 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
 
 
-import getSushiSet from "../../instance";
+
 import FoodItem from "../../components/FoodItem"
 
 import "./index.scss";
 
 
 
-const Sushi = () => {
+const SushiSet = (props) => {
    const [sushiset, setSushiSet] = React.useState([]);
-
    React.useEffect(() => {
-      getSushiSet
-         .get("/menu.json")
-         .then(response => {
-            let arr = []
-            response.data.map((elem) => {
-               if (elem.id == "sushiset") {
-                  arr.push(elem)
-               }
-            })
-            setSushiSet(arr)
-         })
-   }, []);
+      let arr = []
+      props.items.map((elem) => {
+         if (elem.id === "sushiset") {
+            return arr.push(elem)
+         }
+         return arr
+      })
+      setSushiSet(arr)
+   }, [props.items]);
 
    return (
       <div className="content">
@@ -42,4 +39,11 @@ const Sushi = () => {
    );
 }
 
-export default Sushi;
+const mapStateToProps = (state) => {
+   return {
+      items: state.items,
+   }
+}
+
+
+export default connect(mapStateToProps)(SushiSet);

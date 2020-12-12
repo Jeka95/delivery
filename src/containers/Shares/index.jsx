@@ -18,17 +18,12 @@ class Shares extends React.Component {
 
 
    componentDidMount() {
-      let arr = []
       getItem
          .get("/menu.json")
          .then(response => {
-            response.data.map((elem) => {
-               if (this.state.reg.test(elem.id)) {
-                  arr.push(elem)
-               }
-            })
+            this.props.GetItems(response.data);
             this.setState({
-               items: arr
+               items: response.data
             })
          })
 
@@ -59,13 +54,12 @@ class Shares extends React.Component {
 
 const mapStateToProps = (state) => {
    return {
-      UID: state.curentUserId,
    }
 }
 
 const mapDispatchToProps = (dispatch) => {
    return {
-
+      GetItems: (obj) => dispatch({ type: 'GET_ITEMS', payload: obj }),
    }
 }
 

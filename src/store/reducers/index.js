@@ -1,17 +1,21 @@
 import axiosFavorite from "../../instance";
 
-const initialState = { foodItem: {}, results: [], counter: 0, resultPrice: 0, curentUserId: "", favorite: [] }
+const initialState = { items: [], foodItem: {}, results: [], counter: 0, resultPrice: 0, curentUserId: "", favorite: [] }
 
 
 export const rootReducer = (state = initialState, action) => {
     switch (action.type) {
+        case 'GET_ITEMS':
+            return {
+                ...state,
+                items: [...action.payload]
+            }
         case 'ADD_TO_CARD':
             if (action.payload.number === undefined) {
                 action.payload.number = 1;
             }
             state.results.map((elem) => {
                 if (elem.name === action.payload.name) {
-
                     return action.payload.number = action.payload.number + 1;
                 }
                 return action.payload.number
@@ -50,9 +54,7 @@ export const rootReducer = (state = initialState, action) => {
                 counter: state.counter - 1,
                 resultPrice: state.resultPrice - action.payload.elem.price,
                 results: newarr,
-
             }
-
         case 'REM_FROM_CARD':
             let newarrr = [...state.results];
             newarrr.splice(action.payload.index, 1);
@@ -97,7 +99,6 @@ export const rootReducer = (state = initialState, action) => {
             return {
                 ...state,
                 favorite: chekedItem
-
             }
         case 'REMOVE_FROM_FAVORITE':
             action.payload.bool = false;
@@ -111,8 +112,6 @@ export const rootReducer = (state = initialState, action) => {
             return {
                 ...state,
                 favorite: arrfav,
-
-
             }
         default:
             return state

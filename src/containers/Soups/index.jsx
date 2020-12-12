@@ -1,30 +1,28 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
 
-
-import getSoup from "../../instance";
 import FoodItem from "../../components/FoodItem"
 
 import "./index.scss";
 
 
 
-const Soups = () => {
+const Soups = (props) => {
    const [soups, setSoups] = React.useState([]);
 
    React.useEffect(() => {
-      getSoup
-         .get("/menu.json")
-         .then(response => {
-            let arr = []
-            response.data.map((elem) => {
-               if (elem.id == "soup") {
-                  arr.push(elem)
-               }
-            })
-            setSoups(arr)
-         })
-   }, []);
+
+      let arr = []
+      props.items.map((elem) => {
+         if (elem.id === "soup") {
+            return arr.push(elem)
+         }
+         return arr
+      })
+      setSoups(arr)
+
+   }, [props.items]);
 
    return (
       <div className="content">
@@ -41,5 +39,11 @@ const Soups = () => {
       </div >
    );
 }
+const mapStateToProps = (state) => {
+   return {
+      items: state.items,
+   }
+}
 
-export default Soups;
+
+export default connect(mapStateToProps)(Soups);

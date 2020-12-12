@@ -1,5 +1,5 @@
 import React from 'react';
-
+import { connect } from 'react-redux';
 
 
 import getDrinks from "../../instance";
@@ -9,22 +9,18 @@ import "./index.scss";
 
 
 
-const Drinks = () => {
+const Drinks = (props) => {
    const [drinks, setDrinks] = React.useState([]);
 
    React.useEffect(() => {
-      getDrinks
-         .get("/menu.json")
-         .then(response => {
-            let arr = []
-            response.data.map((elem) => {
-               if (elem.id == "drink") {
-                  arr.push(elem)
-               }
-            })
-            setDrinks(arr)
-         })
-   }, []);
+      let arr = []
+      props.items.map((elem) => {
+         if (elem.id === "drink") {
+            arr.push(elem)
+         }
+      })
+      setDrinks(arr)
+   }, [props.items]);
 
    return (
       <div className="content">
@@ -42,4 +38,10 @@ const Drinks = () => {
    );
 }
 
-export default Drinks;
+const mapStateToProps = (state) => {
+   return {
+      items: state.items,
+   }
+}
+
+export default connect(mapStateToProps)(Drinks);

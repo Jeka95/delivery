@@ -1,26 +1,24 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
-import getSalad from "../../instance";
 import FoodItem from "../../components/FoodItem"
 
 import "./index.scss";
-const Salad = () => {
+const Salad = (props) => {
 
    const [salads, setSalads] = React.useState([]);
 
    React.useEffect(() => {
-      getSalad
-         .get("/menu.json")
-         .then(response => {
-            let arr = []
-            response.data.map((elem) => {
-               if (elem.id == "salad") {
-                  arr.push(elem)
-               }
-            })
-            setSalads(arr)
-         })
-   }, []);
+
+      let arr = []
+      props.items.map((elem) => {
+         if (elem.id === "salad") {
+            return arr.push(elem)
+         }
+         return arr
+      })
+      setSalads(arr)
+   }, [props.items]);
 
    return (
       <div className="content">
@@ -38,4 +36,10 @@ const Salad = () => {
    );
 }
 
-export default Salad;
+const mapStateToProps = (state) => {
+   return {
+      items: state.items,
+   }
+}
+
+export default connect(mapStateToProps)(Salad);

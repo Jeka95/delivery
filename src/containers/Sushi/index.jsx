@@ -1,30 +1,28 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
 
-
-import getRool from "../../instance";
 import FoodItem from "../../components/FoodItem"
 
 import "./index.scss";
 
 
 
-const Sushi = () => {
+const Sushi = (props) => {
    const [rools, setRools] = React.useState([]);
 
    React.useEffect(() => {
-      getRool
-         .get("/menu.json")
-         .then(response => {
-            let arr = []
-            response.data.map((elem) => {
-               if (elem.id == "sushi") {
-                  arr.push(elem)
-               }
-            })
-            setRools(arr)
-         })
-   }, []);
+
+      let arr = []
+      props.items.map((elem) => {
+         if (elem.id === "sushi") {
+            return arr.push(elem)
+         }
+         return arr
+      })
+      setRools(arr)
+
+   }, [props.items]);
 
    return (
       <div className="content">
@@ -42,4 +40,11 @@ const Sushi = () => {
    );
 }
 
-export default Sushi;
+const mapStateToProps = (state) => {
+   return {
+      items: state.items,
+   }
+}
+
+
+export default connect(mapStateToProps)(Sushi);
