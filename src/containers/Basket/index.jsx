@@ -90,16 +90,17 @@ class Basket extends React.Component {
                   {this.props.result.map((elem, index) => {
                      return (
                         <div key={index} className="basket__item">
+
+                           <BasketItem food={elem} />
                            <button onClick={() => { this.props.RemItem(elem, index) }}>-</button>
                            <button onClick={() => { this.props.AddItem(elem, index) }}>+</button>
-                           <BasketItem food={elem} />
                            <button id={index} onClick={() => { this.props.RemoveFromCard(index, elem.price, elem.number) }} >Х</button>
                         </div>
                      )
                   })
                   }
                </div>
-               <div className="basket__total-price">Загальна ціна: {this.props.resultPrice}</div>
+               <div className="basket__total-price">Загальна ціна: {this.props.resultPrice} грн</div>
             </div>
             {this.state.showOrders ? <Orders items={this.state.items} /> : null}
          </div >
