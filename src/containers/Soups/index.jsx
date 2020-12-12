@@ -28,6 +28,7 @@ const Soups = () => {
 
    return (
       <div className="content">
+         <div className="title">супи</div>
          <div className="food__items">
             {
                soups.map((food) => {

@@ -28,6 +28,7 @@ const Sushi = () => {
 
    return (
       <div className="content">
+         <div className="title">роли</div>
          <div className="food__items">
             {
                rools.map((food) => {

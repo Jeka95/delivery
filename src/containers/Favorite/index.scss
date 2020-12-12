@@ -1,6 +1,14 @@
 .food__item {
    position: relative;
 }
+.title {
+   text-transform: uppercase;
+   margin: 20px 50%;
+   padding-bottom: 5px;
+   text-align: center;
+   display: inline-block;
+   border-bottom: 3px solid red;
+}
 .btn-remove {
    position: absolute;
    right: 40px;
@@ -9,13 +17,6 @@
    display: flex;
    justify-content: center;
    align-items: center;
-   // border: 3px solid red;
-   // border-radius: 50%;
-   // width: 40px;
-   // height: 40px;
-   // font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
-   // font-weight: 700;
-   // font-size: 20px;
 }
 
 .cl-btn-7 {

@@ -17,7 +17,7 @@ class Favorite extends React.Component {
    render() {
       return (
          <div className="content">
-            <div>Улюблене</div>
+            <div className="title">Улюблене</div>
             <div className="food__items">
                {
                   this.props.favorite.map((food) => {

@@ -72,7 +72,7 @@ class Basket extends React.Component {
 
       return (
          <div className="content">
-            <div className="basket__title">Корзина покупок</div>
+            <div className="title">Корзина покупок</div>
             <div className="basket">
 
                <div className="basket__input">

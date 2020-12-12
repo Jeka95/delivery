@@ -24,6 +24,7 @@ const Salad = () => {
 
    return (
       <div className="content">
+         <div className="title">салати</div>
          <div className="food__items">
             {
                salads.map((food) => {
