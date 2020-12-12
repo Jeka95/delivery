@@ -9,6 +9,8 @@
    }
 
    &__image {
+      display: flex;
+      justify-content: center;
       max-width: 400px;
       min-height: auto;
       padding-bottom: 10px;
@@ -56,6 +58,9 @@
    &__btnAdd:hover {
       transform: translate(0px, 3px);
       box-shadow: 0 3px 0px #09551f;
+   }
+   &__btnAdd:active {
+      background-color: red;
    }
 
    &__btnLike {
@@ -105,4 +110,7 @@
 .like {
    transition-duration: 500ms;
    fill: green;
+}
+.food-block img {
+   margin: 0 auto;
 }

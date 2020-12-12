@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import LinearProgress from '@material-ui/core/LinearProgress';
 
 
 import "./index.scss";
@@ -12,7 +13,8 @@ class Shares extends React.Component {
       super(props);
       this.state = {
          reg: /[a-z]/,
-         items: []
+         items: [],
+         loading: true,
       }
    }
 
@@ -23,21 +25,20 @@ class Shares extends React.Component {
          .then(response => {
             this.props.GetItems(response.data);
             this.setState({
-               items: response.data
+               items: response.data,
+               loading: false,
             })
          })
 
    }
 
-
-
-
-
-
    render() {
-      return (
-
-         <div className="content">
+      let Page = this.state.loading
+         ? (<div className="content">
+            <LinearProgress />
+            <LinearProgress color="secondary" />
+         </div>)
+         : (<div className="content">
             <div className="food__items">
                {
                   this.state.items.map((food) => {
@@ -47,6 +48,12 @@ class Shares extends React.Component {
                   })
                }
             </div>
+         </div>)
+
+
+      return (
+         <div>
+            { Page}
          </div>
       );
    }
