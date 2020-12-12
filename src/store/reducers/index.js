@@ -53,19 +53,19 @@ export const rootReducer = (state = initialState, action) => {
             let newarr = [...state.results];
             state.results.map((e) => {
                 if (e.name === action.payload.elem.name) {
-                    action.payload.elem.number = action.payload.elem.number - 1;
+                    e.number = e.number - 1;
                     console.log(newarr)
                 }
-                if (action.payload.elem.number === 0) {
+                if (e.number === 0) {
                     newarr.splice(action.payload.index, 1);
                     console.log(newarr)
                 }
             })
             return {
                 ...state,
+                results: [...newarr],
                 counter: state.counter - 1,
                 resultPrice: state.resultPrice - action.payload.elem.price,
-                results: newarr,
             }
         case 'REM_FROM_CARD':
             let newarrr = [...state.results];
