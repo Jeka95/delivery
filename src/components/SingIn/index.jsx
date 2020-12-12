@@ -88,7 +88,7 @@ class SingIn extends React.Component {
             }
             {
                user
-                  ? <InfoItem className="auth__favorite" link="/favorite">< Like className="auth__icon" /> Улюблене</InfoItem>
+                  ? <InfoItem className="auth__favorite" link="/favorite">< Like className="auth__icon" /></InfoItem>
                   : null
             }
          </div >
