@@ -4,6 +4,9 @@
    border-radius: 20px;
    margin: 10px;
    padding: 10px;
+   @media (max-width: 845px) {
+      margin: 10px auto;
+   }
 
    &__image {
       max-width: 400px;

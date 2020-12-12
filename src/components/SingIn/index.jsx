@@ -5,6 +5,7 @@ import 'firebase/auth';
 import "firebase/database";
 import { connect } from 'react-redux';
 
+import "./index.scss"
 import axiosUser from "../../instance"
 import FirebaseConfig from '../../FirebaseConfig';
 import InfoItem from "../Info/InfoItem";
@@ -74,20 +75,20 @@ class SingIn extends React.Component {
 
 
       return (
-         <div>
+         <div className="auth">
             {
                user
-                  ? <p>Hello, {user.displayName}</p >
-                  : <p>Please sign in.</p>
+                  ? <p className="auth__title">Hello, {user.displayName}</p >
+                  : <p className="auth__title">Please sign in.</p>
             }
             {
                user
-                  ? <button onClick={signOut}>Sign out</button>
-                  : <button onClick={signInWithGoogle} >Sign in with Google</button>
+                  ? <button className="auth__btn" onClick={signOut}>Sign out</button>
+                  : <button className="auth__btn" onClick={signInWithGoogle} >Sign in with Google</button>
             }
             {
                user
-                  ? <InfoItem link="/favorite"><Like /> Улюблене</InfoItem>
+                  ? <InfoItem className="auth__favorite" link="/favorite">< Like className="auth__icon" /> Улюблене</InfoItem>
                   : null
             }
          </div >

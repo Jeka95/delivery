@@ -10,10 +10,9 @@ import BasketIcon from "../../assets/basket.png"
 const BasketIco = (props) => {
    return (
       <Link to="/basket" className="header__basket">
+         <span className="header__counter">{props.counter}</span>
          <img src={BasketIcon} alt="" />
-         <span>{props.counter}</span>
-
-         <span>{props.resultPrice}</span>
+         <span className="header__price" >{props.resultPrice} грн</span>
       </Link>
 
    );

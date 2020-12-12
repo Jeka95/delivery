@@ -1,0 +1,10 @@
+.auth {
+   margin: 0 auto;
+   position: absolute;
+   top: 25%;
+   left: 50%;
+   &__title {
+      font-family: "Caveat", cursive;
+      font-size: 30px;
+   }
+}
