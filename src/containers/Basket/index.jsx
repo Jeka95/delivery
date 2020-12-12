@@ -90,7 +90,6 @@ class Basket extends React.Component {
                   {this.props.result.map((elem, index) => {
                      return (
                         <div key={index} className="basket__item">
-
                            <BasketItem food={elem} />
                            <button onClick={() => { this.props.RemItem(elem, index) }}>-</button>
                            <button onClick={() => { this.props.AddItem(elem, index) }}>+</button>

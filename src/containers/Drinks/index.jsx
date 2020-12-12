@@ -2,7 +2,6 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 
-import getDrinks from "../../instance";
 import FoodItem from "../../components/FoodItem"
 
 import "./index.scss";
@@ -40,7 +39,7 @@ const Drinks = (props) => {
 
 const mapStateToProps = (state) => {
    return {
-      items: state.items,
+      items: state.itemsServer,
    }
 }
 

@@ -1,6 +1,6 @@
 import axiosFavorite from "../../instance";
 
-const initialState = { items: [], foodItem: {}, results: [], counter: 0, resultPrice: 0, curentUserId: "", favorite: [] }
+const initialState = { itemsServer: [], foodItem: {}, results: [], counter: 0, resultPrice: 0, curentUserId: "", favorite: [] }
 
 
 export const rootReducer = (state = initialState, action) => {
@@ -8,45 +8,57 @@ export const rootReducer = (state = initialState, action) => {
         case 'GET_ITEMS':
             return {
                 ...state,
-                items: [...action.payload]
+                itemsServer: [...action.payload]
             }
         case 'ADD_TO_CARD':
-            if (action.payload.number === undefined) {
-                action.payload.number = 1;
-            }
-            state.results.map((elem) => {
-                if (elem.name === action.payload.name) {
-                    return action.payload.number = action.payload.number + 1;
+            let addcard = state.results;
+
+            if (addcard.length === 0) {
+                addcard.push(action.payload);
+            } else {
+                let find = addcard.find((el) => el.name === action.payload.name)
+                if (find === undefined) {
+                    addcard.push(action.payload);
+                } else {
+                    state.results.map((elem) => {
+                        if (elem.name === action.payload.name) {
+                            elem.number = elem.number + 1;
+                        }
+                    })
                 }
-                return action.payload.number
-            })
+            }
             return {
                 ...state,
                 foodItem: action.payload,
-                results: [...new Set([...state.results, action.payload])],
+                results: [...addcard],
                 counter: state.counter + 1,
                 resultPrice: state.resultPrice + action.payload.price,
             }
         case "ADD_ITEM":
-            state.results.map((e) => {
+            let addItem = [...state.results];
+            addItem.map((e) => {
                 if (e.name === action.payload.name) {
-                    return action.payload.number = action.payload.number + 1;
+                    return e.number = e.number + 1;
                 }
-                return action.payload.number
+                return e.number
             })
             return {
                 ...state,
+                results: addItem,
                 counter: state.counter + 1,
                 resultPrice: state.resultPrice + action.payload.price,
             }
         case "REM_ITEM":
+            console.log(action.payload.index);
             let newarr = [...state.results];
             state.results.map((e) => {
                 if (e.name === action.payload.elem.name) {
                     action.payload.elem.number = action.payload.elem.number - 1;
+                    console.log(newarr)
                 }
                 if (action.payload.elem.number === 0) {
                     newarr.splice(action.payload.index, 1);
+                    console.log(newarr)
                 }
             })
             return {

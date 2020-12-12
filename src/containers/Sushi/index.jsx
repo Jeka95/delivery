@@ -42,7 +42,7 @@ const Sushi = (props) => {
 
 const mapStateToProps = (state) => {
    return {
-      items: state.items,
+      items: state.itemsServer,
    }
 }
 

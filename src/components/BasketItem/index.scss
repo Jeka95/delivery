@@ -1,10 +1,15 @@
 .basket-block {
+   margin: 10px;
    display: flex;
    &__image {
+      margin-right: 5px;
       max-height: 100px;
    }
 
    &__discription {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
    }
    &__subtitle {
    }
@@ -13,6 +18,10 @@
    }
 
    &__bottom {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      align-items: flex-end;
    }
    &__number {
    }
