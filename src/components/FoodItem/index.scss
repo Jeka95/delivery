@@ -1,4 +1,6 @@
 .food-block {
+   display: flex;
+   flex-direction: column;
    width: 400px;
    border: 3px solid #8b898923;
    border-radius: 20px;
@@ -17,6 +19,7 @@
    }
 
    &__info {
+      flex: 1 1 auto;
       display: flex;
       flex-direction: column;
    }
