@@ -19,6 +19,7 @@ class Basket extends React.Component {
          city: "",
          street: "",
          house: "",
+         telValid: false,
          showOrders: false,
       };
       this.handleInputChange = this.handleInputChange.bind(this);
@@ -27,11 +28,28 @@ class Basket extends React.Component {
       const target = event.target;
       const value = target.value;
       const name = target.name;
-
       this.setState({
          [name]: value
       });
+      if (target.name === "tel") {
+         console.log("xaxa");
+         let matrix = "+38(0__)-__-__-___",
+            i = 0,
+            def = matrix.replace(/\D/g, ""),
+            val = value.replace(/\D/g, "");
+         let telVal = value;
+         if (def.length >= val.length) val = def;
+
+         telVal = matrix.replace(/./g, function (a) {
+            return /[_\d]/.test(a) && i < val.length ? val.charAt(i++) : i >= val.length ? "" : a
+         })
+         if (telVal.length === 18) {
+            this.setState({ telValid: true })
+         }
+         this.setState({ [name]: telVal })
+      }
    }
+
 
    ShowOrders = () => {
       let arr = []
@@ -84,7 +102,6 @@ class Basket extends React.Component {
                      <input name="street" type="text" className="basket__street input" placeholder="Вулиця" onChange={this.handleInputChange} value={this.state.street} />
                      <input name="house" type="text" className="basket__house input" placeholder="Будинок" onChange={this.handleInputChange} value={this.state.house} />
                   </form>
-
                </div>
                <div className="basket__items">
                   {this.props.result.map((elem, index) => {
@@ -95,7 +112,6 @@ class Basket extends React.Component {
                            <button className="basket__btn-plus" onClick={() => { this.props.AddItem(elem, index) }}>х</button>
                            <button className="btn-remove-basket" id={index} onClick={() => { this.props.RemoveFromCard(index, elem.price, elem.number) }} ><span className="cl-btn"></span></button>
                         </div>
-
                      )
                   })
                   }
@@ -103,7 +119,11 @@ class Basket extends React.Component {
                <div className="basket__total-price">Загальна ціна: {this.props.resultPrice} грн</div>
             </div>
             <div className="basket__order">
-               <Button variant="contained" color="secondary" onClick={this.ToOrderHendler}>Оформити замовлення</Button>
+               {this.state.telValid
+                  ? <Button variant="contained" color="secondary" onClick={this.ToOrderHendler} >Оформити замовлення</Button>
+                  : <Button variant="contained" color="secondary" onClick={this.ToOrderHendler} disabled >Оформити замовлення</Button>
+               }
+
                <Button variant="contained" color="secondary" onClick={this.ShowOrders}>Показати усі замовлення</Button>
             </div>
             {this.state.showOrders ? <Orders items={this.state.items} /> : null}

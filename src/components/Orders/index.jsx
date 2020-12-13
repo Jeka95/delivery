@@ -16,7 +16,7 @@ const Orders = ({ items }) => {
                      <div className="order__adress">Адреса доставки:</div>
                      <div className="order__curadd" >Місто {elem.adress.city},<br /> вулиця {elem.adress.street},<br />будинок {elem.adress.house}</div>
                      <div className="order__orders" >Замовлення:</div>
-                     <div classNam="order__ordersitems">{elem.order.map((item, index) => {
+                     <div className="order__ordersitems">{elem.order.map((item, index) => {
                         return (
                            <div className="order__orderitem" key={index}>
                               <span>{item.name}  </span>
