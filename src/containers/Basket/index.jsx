@@ -89,9 +89,9 @@ class Basket extends React.Component {
                      return (
                         <div key={index} className="basket__item">
                            <BasketItem food={elem} />
-                           <button onClick={() => { this.props.RemItem(elem, index) }}>-</button>
-                           <button onClick={() => { this.props.AddItem(elem, index) }}>+</button>
-                           <button id={index} onClick={() => { this.props.RemoveFromCard(index, elem.price, elem.number) }} >Х</button>
+                           <button className="basket__btn-minus" onClick={() => { this.props.RemItem(elem, index) }}>l</button>
+                           <button className="basket__btn-plus" onClick={() => { this.props.AddItem(elem, index) }}>х</button>
+                           <button className="btn-remove-basket" id={index} onClick={() => { this.props.RemoveFromCard(index, elem.price, elem.number) }} ><span className="cl-btn"></span></button>
                         </div>
                      )
                   })
