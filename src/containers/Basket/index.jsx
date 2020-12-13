@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import Button from '@material-ui/core/Button';
 
 
 import "./index.scss";
@@ -53,7 +54,8 @@ class Basket extends React.Component {
       let orderResult = {
          order: this.props.result,
          adress: this.state,
-         resulPrice: this.props.resultPrice
+         resulPrice: this.props.resultPrice,
+         numberorder: Date.now()
       }
       axiosOrder
          .post(`/users/${this.props.ID}/orders.json`, orderResult);
@@ -93,14 +95,17 @@ class Basket extends React.Component {
                            <button className="basket__btn-plus" onClick={() => { this.props.AddItem(elem, index) }}>х</button>
                            <button className="btn-remove-basket" id={index} onClick={() => { this.props.RemoveFromCard(index, elem.price, elem.number) }} ><span className="cl-btn"></span></button>
                         </div>
+
                      )
                   })
                   }
                </div>
                <div className="basket__total-price">Загальна ціна: {this.props.resultPrice} грн</div>
             </div>
-            <button onClick={this.ToOrderHendler}>Оформити замовлення</button>
-            <button onClick={this.ShowOrders}>Показати усі замовлення</button>
+            <div className="basket__order">
+               <Button variant="contained" color="secondary" onClick={this.ToOrderHendler}>Оформити замовлення</Button>
+               <Button variant="contained" color="secondary" onClick={this.ShowOrders}>Показати усі замовлення</Button>
+            </div>
             {this.state.showOrders ? <Orders items={this.state.items} /> : null}
          </div >
       );
