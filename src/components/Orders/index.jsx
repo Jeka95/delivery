@@ -14,7 +14,7 @@ const Orders = ({ items }) => {
                      <div className="order__name">Ім'я: {elem.adress.name}</div>
                      <div className="order__tel">Номер: {elem.adress.tel}</div>
                      <div className="order__adress">Адреса доставки:</div>
-                     <div>Місто {elem.adress.city} вулиця {elem.adress.street},будинок {elem.adress.house}</div>
+                     <div className="order__curadd" >Місто {elem.adress.city},<br /> вулиця {elem.adress.street},<br />будинок {elem.adress.house}</div>
                      <div className="order__orders" >Замовлення:</div>
                      <div classNam="order__ordersitems">{elem.order.map((item, index) => {
                         return (
@@ -26,7 +26,7 @@ const Orders = ({ items }) => {
                         )
                      })}</div>
                      <div className="order__price">
-                        <span> Ціна замовлення:</span>
+                        <span> До оплати:</span>
                         <span>{elem.resulPrice} грн</span>
                      </div>
                   </div>
