@@ -30,7 +30,7 @@ class Basket extends React.Component {
       const name = target.name;
       this.setState({
          [name]: value
-      });
+      }, () => { console.log("this.state-->", this.state); });
       if (target.name === "tel") {
          console.log("xaxa");
          let matrix = "+38(0__)-__-__-___",
@@ -45,9 +45,12 @@ class Basket extends React.Component {
          })
          if (telVal.length === 18) {
             this.setState({ telValid: true })
+         } else {
+            this.setState({ telValid: false })
          }
          this.setState({ [name]: telVal })
       }
+
    }
 
 
