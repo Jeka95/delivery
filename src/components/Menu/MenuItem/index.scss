@@ -30,7 +30,10 @@
          color: green;
       }
    }
-   @media (max-width: 845px) {
+}
+@media (max-width: 845px) {
+   .menu__items {
+      padding: 5px;
       display: block;
    }
 }

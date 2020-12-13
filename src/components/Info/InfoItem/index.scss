@@ -18,3 +18,8 @@
       color: rgb(158, 34, 34);
    }
 }
+@media (max-width: 450px) {
+   .info {
+      display: none;
+   }
+}
