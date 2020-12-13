@@ -23,7 +23,6 @@ class Header extends React.Component {
                < Logo />
                <SingIn />
                <Basket />
-               <Menu />
             </div>
          </header>
       );

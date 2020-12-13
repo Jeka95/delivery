@@ -17,6 +17,7 @@ import Certificate from "./containers/Certificate";
 import Basket from "./containers/Basket";
 import Footer from './containers/Footer';
 import Favorite from './containers/Favorite';
+import Menu from './components/Menu';
 
 
 
@@ -26,9 +27,11 @@ function App() {
   return (
     <div className="App">
       <Router>
+        <Header />
         <div className="wrapper">
-          <Header />
-          <Switch >
+
+          <Menu />
+          <Switch  >
             <Route path="/" exact component={Shares} ></Route>
             <Route path="/pizza" component={Pizza}></Route>
             <Route path="/sushi" component={Sushi}></Route>
@@ -46,6 +49,7 @@ function App() {
         </div>
         <Footer />
       </Router>
+
     </div>
   );
 }

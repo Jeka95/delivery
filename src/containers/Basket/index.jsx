@@ -74,7 +74,6 @@ class Basket extends React.Component {
          <div className="content">
             <div className="title">Корзина покупок</div>
             <div className="basket">
-
                <div className="basket__input">
                   <form action="" className="basket__form">
                      <input name="name" type="text" className="basket__name input" placeholder="Імя" onChange={this.handleInputChange} value={this.state.name} />
@@ -83,8 +82,7 @@ class Basket extends React.Component {
                      <input name="street" type="text" className="basket__street input" placeholder="Вулиця" onChange={this.handleInputChange} value={this.state.street} />
                      <input name="house" type="text" className="basket__house input" placeholder="Будинок" onChange={this.handleInputChange} value={this.state.house} />
                   </form>
-                  <button onClick={this.ToOrderHendler}>Оформити замовлення</button>
-                  <button onClick={this.ShowOrders}>Показати усі замовлення</button>
+
                </div>
                <div className="basket__items">
                   {this.props.result.map((elem, index) => {
@@ -101,6 +99,8 @@ class Basket extends React.Component {
                </div>
                <div className="basket__total-price">Загальна ціна: {this.props.resultPrice} грн</div>
             </div>
+            <button onClick={this.ToOrderHendler}>Оформити замовлення</button>
+            <button onClick={this.ShowOrders}>Показати усі замовлення</button>
             {this.state.showOrders ? <Orders items={this.state.items} /> : null}
          </div >
       );

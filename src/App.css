@@ -7,10 +7,14 @@ body {
 }
 .App {
   min-height: 100vh;
-  overflow: hidden;
   display: flex;
   flex-direction: column;
 }
 .wrapper {
   flex: 1 1 auto;
+}
+
+.content {
+  max-width: 1280px;
+  margin: 0 auto;
 }

@@ -52,9 +52,9 @@ class Shares extends React.Component {
 
 
       return (
-         <div>
+         <>
             { Page}
-         </div>
+         </>
       );
    }
 }

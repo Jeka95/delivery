@@ -14,21 +14,21 @@ import SaladIcon from '../../assets/salat2';
 const Menu = () => {
    const [menuActive, setMenuActive] = useState(false);
    return (
-      <div>
-         <div className="burger" onClick={() => setMenuActive(!menuActive)}>
-            <span className={menuActive ? "burger__span active" : "burger__span"}><span className="burger__name"></span></span>
-         </div>
-         <nav className={menuActive ? "menu active" : "menu"} >
-            <ul className="menu__items" onClick={() => setMenuActive(false)}>
-               <MenuItem link="/pizza"> <PizzaIcon /> Піца </MenuItem>
-               <MenuItem link="/sushi"><RoolIcon /> Роли</MenuItem>
-               <MenuItem link="/sushiset"><SusiSetIcon /> Суші сети</MenuItem>
-               <MenuItem link="/soups"><SoupIcon /> Супи</MenuItem>
-               <MenuItem link="/salad"><SaladIcon /> Салати</MenuItem>
-               <MenuItem link="/drinks"> <DrinkIcon /> Напої</MenuItem>
-            </ul>
-         </nav>
-      </div>
+      // <div className="menu-qq">
+      //    <div className="burger" onClick={() => setMenuActive(!menuActive)}>
+      //       <span className={menuActive ? "burger__span active" : "burger__span"}><span className="burger__name"></span></span>
+      //    </div>
+      <nav className={menuActive ? "menu active" : "menu"} >
+         <ul className="menu__items" onClick={() => setMenuActive(false)}>
+            <MenuItem link="/pizza"> <PizzaIcon /> Піца </MenuItem>
+            <MenuItem link="/sushi"><RoolIcon /> Роли</MenuItem>
+            <MenuItem link="/sushiset"><SusiSetIcon /> Суші сети</MenuItem>
+            <MenuItem link="/soups"><SoupIcon /> Супи</MenuItem>
+            <MenuItem link="/salad"><SaladIcon /> Салати</MenuItem>
+            <MenuItem link="/drinks"> <DrinkIcon /> Напої</MenuItem>
+         </ul>
+      </nav>
+      // </div>
    );
 }
 

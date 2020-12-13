@@ -73,7 +73,8 @@
 
 .menu {
    z-index: 3;
-   position: fixed;
-   width: 52%;
-   left: 30%;
+   position: sticky;
+   top: 0;
+   max-width: 1280px;
+   margin: 0 auto;
 }
