@@ -1,12 +1,12 @@
 .logo {
-   width: 250px;
-   height: 250px;
+   width: 200px;
+   height: 200px;
    &__icon {
-      width: 250px;
-      height: 250px;
+      width: 200px;
+      height: 200px;
    }
 }
-@media (max-width: 450px) {
+@media (max-width: 525px) {
    .logo {
       width: 150px;
       height: 150px;

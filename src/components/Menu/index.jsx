@@ -9,8 +9,8 @@ import RoolIcon from "../../assets/Rool";
 import SoupIcon from '../../assets/Soup';
 import SusiSetIcon from '../../assets/SusiSet';
 import SaladIcon from '../../assets/salat2';
-import Basket from "../../components/Basket"
-import BasketMobil from '../BasketMobil';
+import Basket from "../../components/Basket";
+import BasketMobil from "../../components/BasketMobil";
 
 
 const Menu = () => {
@@ -32,6 +32,7 @@ const Menu = () => {
             </ul>
          </nav>
          <BasketMobil />
+
       </div>
    );
 }
