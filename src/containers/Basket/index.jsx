@@ -118,8 +118,8 @@ class Basket extends React.Component {
                   })
                   }
                </div>
-               <div className="basket__total-price">Загальна ціна: {this.props.resultPrice} грн</div>
             </div>
+            <div className="basket__total-price">Загальна ціна: {this.props.resultPrice} грн</div>
             <div className="basket__order">
                {this.state.telValid
                   ? <Button variant="contained" color="secondary" onClick={this.ToOrderHendler} >Оформити замовлення</Button>

@@ -1,6 +1,6 @@
 .input {
    padding: 10px;
-   margin: 10px auto;
+   margin: 10px;
    border: 2px solid green;
    font-size: 18px;
 }
@@ -8,23 +8,25 @@
    font-weight: 400;
    margin-top: 30px;
    display: flex;
-   justify-content: space-around;
-   flex-wrap: wrap;
+   flex-wrap: wrap-reverse;
 
    &__input {
+      margin: 10px;
    }
 
    &__form {
       display: flex;
-      flex-direction: column;
+      flex-wrap: wrap;
    }
 
    &__items {
+      flex: 1 1 70%;
       display: flex;
-      flex-direction: column;
+      flex-wrap: wrap;
    }
 
    &__item {
+      height: 125px;
       border: 3px solid #8b898923;
       border-radius: 20px;
       position: relative;
@@ -46,7 +48,7 @@
       font-size: 26px;
       position: absolute;
       bottom: 10px;
-      right: 31px;
+      right: 14px;
       border-radius: 50%;
       transform: rotate(90deg);
       transition-duration: 0.2s;
@@ -58,8 +60,7 @@
    &__btn-plus {
       font-family: "Langar", cursive;
       position: absolute;
-      bottom: 50px;
-      right: 27px;
+      right: 10px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -90,8 +91,8 @@
 }
 .btn-remove-basket {
    position: absolute;
-   right: 0px;
-   top: 0px;
+   right: -5px;
+   top: -3px;
    background-color: transparent;
    display: flex;
    justify-content: center;
