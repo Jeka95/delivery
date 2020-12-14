@@ -30,9 +30,8 @@ class Basket extends React.Component {
       const name = target.name;
       this.setState({
          [name]: value
-      }, () => { console.log("this.state-->", this.state); });
+      })
       if (target.name === "tel") {
-         console.log("xaxa");
          let matrix = "+38(0__)-__-__-___",
             i = 0,
             def = matrix.replace(/\D/g, ""),

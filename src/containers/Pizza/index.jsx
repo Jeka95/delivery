@@ -9,7 +9,7 @@ const Pizza = (props) => {
    const [pizzas, setPizzas] = React.useState([]);
 
    React.useEffect(() => {
-      let arr = []
+      let arr = [];
       props.items.map((elem) => {
          if (elem.id === "pizza") {
             return arr.push(elem)

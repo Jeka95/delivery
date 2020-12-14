@@ -78,18 +78,15 @@ class SingIn extends React.Component {
          <div className="auth">
             {
                user
-                  ? <p className="auth__title">Hello, {user.displayName}</p >
-                  : <p className="auth__title">Please sign in.</p>
-            }
-            {
-               user
-                  ? <button className="auth__btn" onClick={signOut}>Sign out</button>
-                  : <button className="auth__btn" onClick={signInWithGoogle} >Sign in with Google</button>
-            }
-            {
-               user
-                  ? <InfoItem className="auth__favorite" link="/favorite">Улюблені страви <FavHeader /> </InfoItem>
-                  : null
+                  ? <>
+                     <p className="auth__title">Привіт, {user.displayName}</p >
+                     <button className="auth__btn" onClick={signOut}>Вийти</button>
+                     <InfoItem className="auth__favorite" link="/favorite">Улюблені страви <FavHeader /> </InfoItem>
+                  </>
+                  : <>
+                     <p className="auth__title">Будь ласка, увійдіть.</p>
+                     <button className="auth__btn" onClick={signInWithGoogle} ><p> Увійдіть з Google</p></button>
+                  </>
             }
          </div >
       );

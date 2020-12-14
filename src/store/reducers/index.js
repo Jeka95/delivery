@@ -49,16 +49,13 @@ export const rootReducer = (state = initialState, action) => {
                 resultPrice: state.resultPrice + action.payload.price,
             }
         case "REM_ITEM":
-            console.log(action.payload.index);
             let newarr = [...state.results];
             state.results.map((e) => {
                 if (e.name === action.payload.elem.name) {
                     e.number = e.number - 1;
-                    console.log(newarr)
                 }
                 if (e.number === 0) {
                     newarr.splice(action.payload.index, 1);
-                    console.log(newarr)
                 }
             })
             return {
