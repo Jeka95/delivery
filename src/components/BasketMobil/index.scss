@@ -1,12 +1,11 @@
-.header__basket {
+.header__basketmob {
+   font-size: 14px;
    display: flex;
    flex-direction: column;
-   right: 25px;
-   top: 400px;
    z-index: 100;
    background-color: #13a83d;
-   width: 100px;
-   height: 100px;
+   width: 80px;
+   height: 80px;
    align-items: center;
    border-radius: 50%;
    justify-content: center;
@@ -15,25 +14,26 @@
       height: 30px;
    }
 }
-.header__counter {
+.header__countermob {
    font-family: "Langar", cursive;
    font-weight: 400;
-   line-height: 30px;
-   width: 30px;
-   height: 30px;
+   line-height: 20px;
+   width: 20px;
+   height: 20px;
    background-color: rgba(221, 28, 28, 0.795);
    text-align: center;
    border-radius: 50%;
    color: #000;
 }
 
-.header__price {
+.header__pricemob {
+   font-size: 14px;
    font-family: "Langar", cursive;
    font-weight: 400;
    color: #000;
 }
-@media (max-width: 845px) {
-   .header__basket {
+@media (min-width: 846px) {
+   .header__basketmob {
       display: none;
    }
 }

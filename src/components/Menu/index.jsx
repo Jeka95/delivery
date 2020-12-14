@@ -9,6 +9,8 @@ import RoolIcon from "../../assets/Rool";
 import SoupIcon from '../../assets/Soup';
 import SusiSetIcon from '../../assets/SusiSet';
 import SaladIcon from '../../assets/salat2';
+import Basket from "../../components/Basket"
+import BasketMobil from '../BasketMobil';
 
 
 const Menu = () => {
@@ -26,8 +28,10 @@ const Menu = () => {
                <MenuItem link="/soups"><SoupIcon /> Супи</MenuItem>
                <MenuItem link="/salad"><SaladIcon /> Салати</MenuItem>
                <MenuItem link="/drinks"> <DrinkIcon /> Напої</MenuItem>
+               <Basket />
             </ul>
          </nav>
+         <BasketMobil />
       </div>
    );
 }

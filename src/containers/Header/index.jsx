@@ -3,7 +3,7 @@ import React from 'react';
 import "./index.scss";
 import Logo from "../../components/Logo";
 import Info from '../../components/Info';
-import Basket from "../../components/Basket"
+
 import SingIn from '../../components/SingIn';
 
 
@@ -21,7 +21,6 @@ class Header extends React.Component {
                <Info />
                < Logo />
                <SingIn />
-               <Basket />
             </div>
          </header>
       );

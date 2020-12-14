@@ -1,6 +1,8 @@
 /* !!ИКОНКА МЕНЮ БУРГЕРА */
 
 .menu-qq {
+   display: flex;
+   justify-content: flex-end;
    z-index: 3;
    position: sticky;
    top: 0;
@@ -66,15 +68,29 @@
    .menu {
       position: fixed;
       height: auto;
-      background: white;
       color: #ccc;
-      transform: translateX(-400%);
+      transform: translateX(-110vw);
       transition: transform 1500ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
    }
    .menu.active {
-      transform: translateX(0%);
+      transform: translateX(-90vw);
    }
    .menu-qq {
       z-index: 3;
+   }
+}
+@media (max-width: 620px) {
+   .menu.active {
+      transform: translateX(-87vw);
+   }
+}
+@media (max-width: 500px) {
+   .menu.active {
+      transform: translateX(-85vw);
+   }
+}
+@media (max-width: 400px) {
+   .menu.active {
+      transform: translateX(-80vw);
    }
 }
