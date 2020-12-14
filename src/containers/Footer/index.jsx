@@ -8,6 +8,7 @@ const Footer = () => {
    return (
       <footer className="footer">
          <div>всі права захищені</div>
+         <Info />
       </footer>
    );
 }

@@ -110,7 +110,7 @@ export const rootReducer = (state = initialState, action) => {
                 .patch(`/users/${state.curentUserId}/favorite.json`, { items })
             return {
                 ...state,
-                favorite: chekedItem
+                favorite: [...chekedItem],
             }
         case 'REMOVE_FROM_FAVORITE':
             action.payload.bool = false;
@@ -123,7 +123,7 @@ export const rootReducer = (state = initialState, action) => {
                 .patch(`/users/${state.curentUserId}/favorite.json`, { items })
             return {
                 ...state,
-                favorite: arrfav,
+                favorite: [...arrfav],
             }
         default:
             return state
