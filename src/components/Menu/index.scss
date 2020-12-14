@@ -1,8 +1,6 @@
 /* !!ИКОНКА МЕНЮ БУРГЕРА */
 
 .menu-qq {
-   display: flex;
-   justify-content: flex-end;
    z-index: 3;
    position: sticky;
    top: 0;
@@ -10,6 +8,10 @@
    margin: 0 auto;
 }
 @media (max-width: 845px) {
+   .menu-qq {
+      display: flex;
+      justify-content: flex-end;
+   }
    .burger {
       position: fixed;
       left: 10px;
