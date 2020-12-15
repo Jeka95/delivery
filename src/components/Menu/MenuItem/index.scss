@@ -6,12 +6,19 @@
    :hover {
       color: green;
    }
-
-   .active {
-      fill: green;
-      color: green;
-   }
 }
+.menu__linc {
+   color: #000;
+}
+.menu__linc:visited {
+   color: #000;
+}
+
+.active {
+   fill: green;
+   color: green;
+}
+
 .menu__items {
    border-radius: 20px;
    display: flex;
