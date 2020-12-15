@@ -1,8 +1,6 @@
 .auth {
    display: flex;
    flex-direction: column;
-   margin: 0 auto;
-   position: absolute;
    top: 20%;
    left: 34%;
    &__title {
@@ -24,14 +22,13 @@
       display: inline-block;
       background-color: #fff;
       text-align: center;
+      padding-bottom: 20px;
    }
    &__icon {
       width: 100px;
    }
 }
 .fav-icon {
-   position: absolute;
-   bottom: -10px;
    fill: red;
    width: 50px;
    height: 50px;

@@ -18,9 +18,12 @@ class Header extends React.Component {
       return (
          <header className="header">
             <div className="header__wrraper">
-               <Info />
                < Logo />
-               <SingIn />
+               <div className="header__right">
+                  <Info />
+                  <SingIn />
+               </div>
+
             </div>
          </header>
       );

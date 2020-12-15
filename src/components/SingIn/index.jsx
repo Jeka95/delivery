@@ -79,12 +79,10 @@ class SingIn extends React.Component {
             {
                user
                   ? <>
-                     <p className="auth__title">Привіт, {user.displayName}</p >
                      <button className="auth__btn" onClick={signOut}>Вийти</button>
                      <InfoItem className="auth__favorite" link="/favorite">Улюблені страви <FavHeader /> </InfoItem>
                   </>
                   : <>
-                     <p className="auth__title">Будь ласка, увійдіть.</p>
                      <button className="auth__btn" onClick={signInWithGoogle} ><p> Увійдіть з Google</p></button>
                   </>
             }
