@@ -25,9 +25,9 @@ const Menu = () => {
                <MenuItem link="/pizza"> <PizzaIcon /> Піца </MenuItem>
                <MenuItem link="/sushi"><RoolIcon /> Роли</MenuItem>
                <MenuItem link="/sushiset"><SusiSetIcon /> Суші сети</MenuItem>
-               <MenuItem link="/soups"><SoupIcon /> Супи</MenuItem>
+               <MenuItem link="/soup"><SoupIcon /> Супи</MenuItem>
                <MenuItem link="/salad"><SaladIcon /> Салати</MenuItem>
-               <MenuItem link="/drinks"> <DrinkIcon /> Напої</MenuItem>
+               <MenuItem link="/drink"> <DrinkIcon /> Напої</MenuItem>
                <Basket />
             </ul>
          </nav>

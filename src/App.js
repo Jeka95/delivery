@@ -18,7 +18,7 @@ import Basket from "./containers/Basket";
 import Footer from './containers/Footer';
 import Favorite from './containers/Favorite';
 import Menu from './components/Menu';
-
+import FoodItemPage from "./containers/FoodItemPage"
 
 
 
@@ -29,27 +29,26 @@ function App() {
       <Router>
         <Header />
         <div className="wrapper">
-
           <Menu />
           <Switch  >
             <Route path="/" exact component={Shares} ></Route>
-            <Route path="/pizza" component={Pizza}></Route>
-            <Route path="/sushi" component={Sushi}></Route>
-            <Route path="/sushiset" component={SushiSet}></Route>
-            <Route path="/soups" component={Soups}></Route>
-            <Route path="/salad" component={Salad}></Route>
-            <Route path="/drinks" component={Drinks}></Route>
+            <Route path="/pizza" exact component={Pizza}></Route>
+            <Route path="/sushi" exact component={Sushi}></Route>
+            <Route path="/sushiset" exact component={SushiSet}></Route>
+            <Route path="/soup" exact component={Soups}></Route>
+            <Route path="/salad" exact component={Salad}></Route>
+            <Route path="/drink" exact component={Drinks}></Route>
             <Route path="/favorite" component={Favorite}></Route>
             <Route path="/about" component={About}></Route>
             <Route path="/contacts" component={Contacts}></Route>
             <Route path="/howtoorder" component={HowOrder}></Route>
             <Route path="/certificate" component={Certificate}></Route>
             <Route path="/basket" component={Basket}></Route>
+            <Route path="/:id/:id" component={FoodItemPage}></Route>
           </Switch>
         </div>
         <Footer />
       </Router>
-
     </div>
   );
 }

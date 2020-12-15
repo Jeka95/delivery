@@ -1,0 +1,23 @@
+.product {
+   margin: 30px;
+   &__title {
+      margin-bottom: 30px;
+      text-align: center;
+
+      span {
+         line-height: 40px;
+         font-size: 30px;
+         text-transform: uppercase;
+         padding-bottom: 3px;
+         border-bottom: 4px solid rgb(240, 15, 15);
+      }
+   }
+   &__discription {
+   }
+   &__buy {
+   }
+   &__img {
+      max-width: 100%;
+      height: auto;
+   }
+}

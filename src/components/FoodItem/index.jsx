@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-
+import { Link } from "react-router-dom";
 
 import "./index.scss";
 
@@ -15,9 +15,15 @@ class FoodItem extends React.Component {
 
       return (
          <div className="food-block">
-            <img className="food-block__image" src={this.props.food.img} alt={this.props.food.name} />
+
+            <Link to={`/${this.props.food.id}/${this.props.food.urlId}`}  >
+               <img className="food-block__image" src={this.props.food.img} alt={this.props.food.name} />
+            </Link>
+
             <div className="food-block__info">
-               <h4 className="food-block__title">{this.props.food.name}</h4>
+               <Link to={`/${this.props.food.id}/${this.props.food.urlId}`}>
+                  <h4 className="food-block__title">{this.props.food.name}</h4>
+               </Link>
                <span className="food-block__weight">{this.props.food.weight} г</span>
                <span className="food-block__ingredients">{this.props.food.ingredients}</span>
             </div>

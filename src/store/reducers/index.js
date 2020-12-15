@@ -5,6 +5,13 @@ const initialState = { itemsServer: [], foodItem: {}, results: [], counter: 0, r
 
 export const rootReducer = (state = initialState, action) => {
     switch (action.type) {
+
+        case 'RENDER_ITEM':
+            return {
+                ...state,
+                foodItem: action.payload,
+            }
+
         case 'GET_ITEMS':
             return {
                 ...state,
@@ -12,7 +19,6 @@ export const rootReducer = (state = initialState, action) => {
             }
         case 'ADD_TO_CARD':
             let addcard = state.results;
-
             if (addcard.length === 0) {
                 addcard.push(action.payload);
             } else {
@@ -29,7 +35,6 @@ export const rootReducer = (state = initialState, action) => {
             }
             return {
                 ...state,
-                foodItem: action.payload,
                 results: [...addcard],
                 counter: state.counter + 1,
                 resultPrice: state.resultPrice + action.payload.price,
