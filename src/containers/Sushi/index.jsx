@@ -31,7 +31,7 @@ const Sushi = (props) => {
             {
                rools.map((food) => {
                   return (
-                     <FoodItem key={food.name} food={food} />
+                     <FoodItem key={food.urlId} food={food} />
                   )
                })
             }

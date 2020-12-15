@@ -60,7 +60,7 @@ class Shares extends React.Component {
                {
                   this.state.items.map((food) => {
                      return (
-                        <FoodItem key={food.name} food={food} />
+                        <FoodItem key={food.urlId} food={food} />
                      )
                   })
                }
