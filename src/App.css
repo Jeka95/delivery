@@ -4,6 +4,7 @@
 
 body {
   font-family: "Dancing Script", cursive;
+  z-index: 10000;
 }
 .App {
   min-height: 100vh;

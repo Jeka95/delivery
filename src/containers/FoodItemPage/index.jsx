@@ -65,24 +65,25 @@ const FoodItemPage = (props) => {
                   <div className="product__info">
                      <span className="product__price">{item[0].price} грн</span>
                      <span className="product__weight">{item[0].weight} г</span>
-                     <button>замовити</button>
-
+                     <button className="product__btn" onClick={() => { props.AddToCard(item[0]) }} >замовити</button>
+                     {/* {console.log("усе вийшло", item[0].ingredients.translit())} */}
                   </div>
                </div >
                <div className="product__right">
-                  <div className="product__ingredients"></div>
+                  <span className="product__subtitle">ІНГРЕДІЄНТИ</span>
+                  <div className="product__ingredients">
+                     {
+                        item[0].ingredients.split(", ").map((elem) => {
+                           return (
+                              <div className="product__ingredient" key={elem}>
+                                 <img src={`/${elem.translit()}.webp`} alt="" />
+                                 <span>{elem}</span>
+                              </div>)
+                        })
+                     }
+                  </div>
                </div>
-               {console.log("усе вийшло", item[0].ingredients.translit())}
-               {
-                  item[0].ingredients.split(", ").map((elem) => {
-                     return (
-                        <div key={elem}>
-                           <img src={`/${elem.translit()}.webp`} alt="" />
-                           {console.log(elem)}
-                           <span>{elem}</span>
-                        </div>)
-                  })
-               }
+
             </div >
          </div >
       </div >
@@ -95,6 +96,11 @@ const mapStateToProps = (state) => {
       items: state.itemsServer,
    }
 }
-export default connect(mapStateToProps)(FoodItemPage);
+const mapDispatchToProps = (dispatch) => {
+   return {
+      AddToCard: (obj) => dispatch({ type: 'ADD_TO_CARD', payload: obj }),
+   }
+}
+export default connect(mapStateToProps, mapDispatchToProps)(FoodItemPage);
 
 

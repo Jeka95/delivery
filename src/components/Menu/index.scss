@@ -9,13 +9,14 @@
 }
 @media (max-width: 845px) {
    .menu-qq {
+      background: rgb(84, 92, 116);
       display: flex;
       justify-content: flex-end;
    }
    .burger {
       position: fixed;
       left: 10px;
-      top: 10px;
+      top: 20px;
       width: 30px;
       height: 30px;
       cursor: pointer;
