@@ -18,7 +18,7 @@
       justify-content: space-around;
    }
    &__left {
-      border: 3px solid grey;
+      border: 3px solid #f99f1b;
       border-radius: 20px;
       margin-bottom: 20px;
    }
@@ -35,6 +35,7 @@
       display: flex;
       flex-direction: column;
       align-items: center;
+      margin-bottom: 20px;
    }
    &__price {
       font-size: 18px;
