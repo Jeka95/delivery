@@ -1,0 +1,33 @@
+.how-order {
+   margin-top: 30px;
+   display: flex;
+   flex-wrap: wrap;
+   margin: 30px -5px 0;
+
+   &__step {
+      flex: 0 1 25%;
+      padding: 0 5px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+   }
+   &__img {
+      margin-bottom: 20px;
+   }
+   &__title {
+      font-weight: 600;
+      margin-bottom: 25px;
+
+      span {
+         font-size: 40px;
+      }
+   }
+   &__instuction {
+      flex: 1 1 auto;
+      text-align: center;
+      border: 2px solid #364926;
+      padding: 15px;
+      border-bottom: 4px solid #f99f1b;
+   }
+}
