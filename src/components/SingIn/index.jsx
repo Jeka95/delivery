@@ -4,12 +4,13 @@ import firebase from 'firebase/app';
 import 'firebase/auth';
 import "firebase/database";
 import { connect } from 'react-redux';
+import { Link } from "react-router-dom";
 
 import "./index.scss"
 import axiosUser from "../../instance"
 import FirebaseConfig from '../../FirebaseConfig';
 import InfoItem from "../Info/InfoItem";
-import FavHeader from '../../assets/award';
+import PersonIcon from "../../assets/person";
 
 
 
@@ -80,7 +81,9 @@ class SingIn extends React.Component {
                user
                   ? <>
                      <button className="auth__btn" onClick={signOut}>Вийти</button>
-                     <InfoItem className="auth__favorite" link="/favorite">Улюблені страви <FavHeader /> </InfoItem>
+                     <Link to="/personal-info" className="auth__personal-account"><PersonIcon /></Link>
+                     {/* <InfoItem className="auth__favorite" link="/favorite">  </InfoItem> */}
+
                   </>
                   : <>
                      <button className="auth__btn" onClick={signInWithGoogle} ><p> Увійдіть з Google</p></button>

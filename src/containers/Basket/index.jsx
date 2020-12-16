@@ -2,12 +2,10 @@ import React from 'react';
 import { connect } from 'react-redux';
 import Button from '@material-ui/core/Button';
 
+import axiosOrder from "../../instance";
 
 import "./index.scss";
 import BasketItem from "../../components/BasketItem";
-import axiosOrder from "../../instance";
-import Orders from '../../components/Orders';
-
 
 class Basket extends React.Component {
    constructor(props) {
@@ -20,7 +18,7 @@ class Basket extends React.Component {
          street: "",
          house: "",
          telValid: false,
-         showOrders: false,
+
       };
       this.handleInputChange = this.handleInputChange.bind(this);
    }
@@ -50,24 +48,6 @@ class Basket extends React.Component {
          this.setState({ [name]: telVal })
       }
 
-   }
-
-
-   ShowOrders = () => {
-      let arr = []
-      axiosOrder
-         .get(`/users/${this.props.ID}/orders.json`)
-         .then(response => {
-            for (let key in response.data) {
-               arr.push(response.data[key]);
-            }
-            this.setState({
-               items: arr
-            })
-         })
-      this.setState({
-         showOrders: !this.state.showOrders
-      })
    }
 
    ToOrderHendler = () => {
@@ -124,11 +104,7 @@ class Basket extends React.Component {
                {this.state.telValid
                   ? <Button variant="contained" color="secondary" onClick={this.ToOrderHendler} >Оформити замовлення</Button>
                   : <Button variant="contained" color="secondary" onClick={this.ToOrderHendler} disabled >Оформити замовлення</Button>
-               }
-
-               <Button variant="contained" color="secondary" onClick={this.ShowOrders}>Показати усі замовлення</Button>
-            </div>
-            {this.state.showOrders ? <Orders items={this.state.items} /> : null}
+               }</div>
          </div >
       );
    }

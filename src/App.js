@@ -18,7 +18,8 @@ import Basket from "./containers/Basket";
 import Footer from './containers/Footer';
 import Favorite from './containers/Favorite';
 import Menu from './components/Menu';
-import FoodItemPage from "./containers/FoodItemPage"
+import FoodItemPage from "./containers/FoodItemPage";
+import PersonalInfo from "./containers/PersonalOffice";
 
 
 
@@ -44,6 +45,7 @@ function App() {
             <Route path="/howtoorder" component={HowOrder}></Route>
             <Route path="/certificate" component={Certificate}></Route>
             <Route path="/basket" component={Basket}></Route>
+            <Route path="/personal-info" component={PersonalInfo}></Route>
             <Route path="/:id/:id" component={FoodItemPage}></Route>
           </Switch>
         </div>
