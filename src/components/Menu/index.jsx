@@ -3,14 +3,15 @@ import React, { useState } from 'react';
 
 import "./index.scss";
 import MenuItem from "./MenuItem";
-import PizzaIcon from "../../assets/pizza"
-import DrinkIcon from "../../assets/Drink";
-import RoolIcon from "../../assets/Rool";
-import SoupIcon from '../../assets/Soup';
-import SusiSetIcon from '../../assets/SusiSet';
-import SaladIcon from '../../assets/salat2';
 import Basket from "../../components/Basket";
 import BasketMobil from "../../components/BasketMobil";
+
+import RoolIcon2 from "../../assets/rool2";
+import DrinkIcon2 from "../../assets/drink2";
+import SushiSetIcon2 from "../../assets/Set2";
+import SoupIcon2 from "../../assets/Soup2";
+import SaladIcon2 from "../../assets/salad";
+import PizzaIcon2 from "../../assets/pizza2";
 
 
 const Menu = () => {
@@ -22,12 +23,12 @@ const Menu = () => {
          </div>
          <nav className={menuActive ? "menu active" : "menu"} >
             <ul className="menu__items" onClick={() => setMenuActive(false)}>
-               <MenuItem link="/pizza"> <PizzaIcon /> Піца </MenuItem>
-               <MenuItem link="/sushi"><RoolIcon /> Роли</MenuItem>
-               <MenuItem link="/sushiset"><SusiSetIcon /> Суші сети</MenuItem>
-               <MenuItem link="/soup"><SoupIcon /> Супи</MenuItem>
-               <MenuItem link="/salad"><SaladIcon /> Салати</MenuItem>
-               <MenuItem link="/drink"> <DrinkIcon /> Напої</MenuItem>
+               <MenuItem link="/pizza"> <PizzaIcon2 />  <span>Піца</span> </MenuItem>
+               <MenuItem link="/sushi"><RoolIcon2 /><span>Роли</span></MenuItem>
+               <MenuItem link="/sushiset"><SushiSetIcon2 /> <span>Суші сети</span></MenuItem>
+               <MenuItem link="/soup"><SoupIcon2 /> <span>Супи</span> </MenuItem>
+               <MenuItem link="/salad"><SaladIcon2 /> <span>Салати</span> </MenuItem>
+               <MenuItem link="/drink"> <DrinkIcon2 /> <span>Напої</span> </MenuItem>
                <Basket />
             </ul>
          </nav>

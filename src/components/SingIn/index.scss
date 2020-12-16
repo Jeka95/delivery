@@ -5,10 +5,12 @@
 
    &__btn {
       padding: 5px;
-      background-color: lightblue;
+      background-color: #3a3f36;
       font-size: 20px;
       border-radius: 10px;
       margin-bottom: 20px;
+      color: #f99f1b;
+      font-weight: 600;
       svg {
          width: 25px;
          height: 25px;
@@ -20,10 +22,11 @@
       }
    }
    &__personal-account {
-      background: #000;
+      border-radius: 10px;
+      background: #3a3f36;
       padding: 10px;
       svg {
-         fill: rebeccapurple;
+         fill: #f99f1b;
       }
    }
 }

@@ -1,19 +1,15 @@
 .header__basket {
    display: flex;
    flex-direction: column;
-   right: 25px;
-   top: 400px;
    z-index: 100;
-   background-color: #13a83d;
+   background-color: #f99f1b;
    width: 100px;
    height: 100px;
    align-items: center;
-   border-radius: 50%;
    justify-content: center;
    img {
       width: 30px;
       height: 30px;
-      filter: hue-rotate(-360deg);
    }
 }
 .header__counter {
@@ -22,10 +18,10 @@
    line-height: 30px;
    width: 30px;
    height: 30px;
-   background-color: rgba(221, 28, 28, 0.795);
+   background-color: #3a3f36;
    text-align: center;
    border-radius: 50%;
-   color: #000;
+   color: #f99f1b;
 }
 
 .header__price {

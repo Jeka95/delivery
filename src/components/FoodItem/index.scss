@@ -54,20 +54,29 @@
       font-weight: 400;
    }
    &__btnAdd {
-      background-color: green;
-      padding: 10px 22px;
-      font-size: 18px;
-      border-radius: 10px;
-      color: white;
-      box-shadow: 0 5px 0px #09551f;
-      transition-duration: 500ms;
+      border: solid 2px #ebb25e;
+      cursor: pointer;
+      padding: 0.5rem 0.5rem;
+      transition: all 0.5s ease;
+      color: #41403e;
+      font-size: 2rem;
+      letter-spacing: 1px;
+      outline: none;
+      box-shadow: 20px 38px 34px -26px hsla(0, 0%, 0%, 0.2);
+      border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+      cursor: pointer;
+      align-self: center;
+      background: #deb27147;
+      transition: all 0.5s ease;
+      color: #41403e;
+      font-size: 20px;
+      letter-spacing: 1px;
+      outline: none;
+      box-shadow: 20px 38px 34px -26px hsla(0, 0%, 0%, 0.2);
+      border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
    }
    &__btnAdd:hover {
-      transform: translate(0px, 3px);
-      box-shadow: 0 3px 0px #09551f;
-   }
-   &__btnAdd:active {
-      background-color: red;
+      box-shadow: 2px 8px 4px -6px hsla(0, 0%, 0%, 0.3);
    }
 
    &__btnLike {

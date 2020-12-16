@@ -1,44 +1,60 @@
-$primary-color: green;
-
 .menu__item {
    text-align: center;
-   width: 60px;
-   height: 60px;
-   margin-bottom: 35px;
    :hover {
-      color: $primary-color;
+      color: red;
    }
 }
 .menu__linc {
-   color: #000;
+   display: block;
+   width: 100px;
+   height: 100px;
+   padding: 20px;
+   margin: 2px 0;
+   transition-duration: 1000ms;
+   color: #f99f1b;
+   svg {
+      width: 50px;
+      height: 50px;
+      fill: #f99f1b;
+   }
+   span {
+      display: none;
+   }
 }
-.menu__linc:visited {
-   color: #000;
+.menu__linc:hover {
+   background: #f99f1b;
+   svg {
+      fill: #3a3f36;
+   }
+   span {
+      margin-top: -5px;
+      font-weight: 700;
+      display: block;
+      color: #3a3f36;
+   }
 }
+.menu__linc.active {
+   background: #f99f1b;
+   color: #3a3f36;
 
-.active {
-   fill: $primary-color;
-   color: $primary-color;
+   span {
+      margin-top: -5px;
+      font-weight: 700;
+      display: block;
+      color: #3a3f36;
+   }
+   svg {
+      fill: #3a3f36;
+   }
 }
 
 .menu__items {
-   border-radius: 20px;
+   border-radius: 12px;
    display: flex;
    justify-content: space-around;
-   background: rgb(220, 220, 230);
-   background: linear-gradient(
-      72deg,
-      rgba(220, 220, 230, 1) 0%,
-      rgba(120, 124, 120, 0.8547794117647058) 63%,
-      rgba(91, 92, 86, 1) 100%
-   );
+   background: #3a3f36;
    list-style-type: none;
-   :nth-child(5) {
-      :hover {
-         fill: $primary-color;
-         color: $primary-color;
-      }
-   }
+   align-items: center;
 }
 @media (max-width: 845px) {
    .menu__items {
