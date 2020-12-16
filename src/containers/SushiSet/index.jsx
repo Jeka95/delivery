@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 
-
+import getItem from "../../instance";
 
 import FoodItem from "../../components/FoodItem"
 
@@ -14,13 +14,27 @@ const SushiSet = (props) => {
    const [sushiset, setSushiSet] = React.useState([]);
    React.useEffect(() => {
       let arr = []
-      props.items.map((elem) => {
-         if (elem.id === "sushiset") {
-            return arr.push(elem)
-         }
-         return arr
-      })
-      setSushiSet(arr)
+      if (props.items.length === 0) {
+         getItem
+            .get("/menu.json")
+            .then(response => {
+               props.GetItems(response.data);
+               response.data.map((elem) => {
+                  if (elem.id === "sushiset") {
+                     return arr.push(elem)
+                  }
+                  return arr
+               })
+            })
+      } else {
+         props.items.map((elem) => {
+            if (elem.id === "sushiset") {
+               return arr.push(elem)
+            }
+            return arr
+         })
+         setSushiSet(arr)
+      }
    }, [props.items]);
 
    return (
@@ -44,6 +58,11 @@ const mapStateToProps = (state) => {
       items: state.itemsServer,
    }
 }
+const mapDispatchToProps = (dispatch) => {
+   return {
+      GetItems: (obj) => dispatch({ type: 'GET_ITEMS', payload: obj }),
+   }
+}
 
 
-export default connect(mapStateToProps)(SushiSet);
+export default connect(mapStateToProps, mapDispatchToProps)(SushiSet);

@@ -13,7 +13,7 @@ const Info = () => {
                <InfoItem link="/contacts">Контакти</InfoItem>
                <InfoItem link="/about">Про нас</InfoItem>
                <InfoItem link="/howtoorder">Як замовити</InfoItem>
-               <InfoItem link="/certificate">Сертифікати</InfoItem>
+               {/* <InfoItem link="/certificate">Сертифікати</InfoItem> */}
 
             </ul>
          </nav>

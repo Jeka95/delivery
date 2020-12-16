@@ -1,7 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import FoodItem from "../../components/FoodItem"
+import FoodItem from "../../components/FoodItem";
+import getItem from "../../instance";
 
 import "./index.scss";
 const Salad = (props) => {
@@ -11,13 +12,27 @@ const Salad = (props) => {
    React.useEffect(() => {
 
       let arr = []
-      props.items.map((elem) => {
-         if (elem.id === "salad") {
-            return arr.push(elem)
-         }
-         return arr
-      })
-      setSalads(arr)
+      if (props.items.length === 0) {
+         getItem
+            .get("/menu.json")
+            .then(response => {
+               props.GetItems(response.data);
+               response.data.map((elem) => {
+                  if (elem.id === "salad") {
+                     return arr.push(elem)
+                  }
+                  return arr
+               })
+            })
+      } else {
+         props.items.map((elem) => {
+            if (elem.id === "salad") {
+               return arr.push(elem)
+            }
+            return arr
+         })
+         setSalads(arr)
+      }
    }, [props.items]);
 
    return (
@@ -41,5 +56,10 @@ const mapStateToProps = (state) => {
       items: state.itemsServer,
    }
 }
+const mapDispatchToProps = (dispatch) => {
+   return {
+      GetItems: (obj) => dispatch({ type: 'GET_ITEMS', payload: obj }),
+   }
+}
 
-export default connect(mapStateToProps)(Salad);
+export default connect(mapStateToProps, mapDispatchToProps)(Salad);

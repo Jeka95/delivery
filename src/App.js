@@ -13,13 +13,14 @@ import Shares from "./containers/Shares";
 import About from "./containers/About";
 import Contacts from "./containers/Contacts";
 import HowOrder from "./containers/HowOrder";
-import Certificate from "./containers/Certificate";
+// import Certificate from "./containers/Certificate";
 import Basket from "./containers/Basket";
 import Footer from './containers/Footer';
 import Favorite from './containers/Favorite';
 import Menu from './components/Menu';
 import FoodItemPage from "./containers/FoodItemPage";
 import PersonalInfo from "./containers/PersonalOffice";
+import NotFound from "./containers/NotFound";
 
 
 
@@ -43,10 +44,11 @@ function App() {
             <Route path="/about" component={About}></Route>
             <Route path="/contacts" component={Contacts}></Route>
             <Route path="/howtoorder" component={HowOrder}></Route>
-            <Route path="/certificate" component={Certificate}></Route>
+            {/* <Route path="/certificate" component={Certificate}></Route> */}
             <Route path="/basket" component={Basket}></Route>
             <Route path="/personal-info" component={PersonalInfo}></Route>
             <Route path="/:id/:id" component={FoodItemPage}></Route>
+            <Route component={NotFound}></Route>
           </Switch>
         </div>
         <Footer />
