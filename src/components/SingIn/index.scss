@@ -3,12 +3,7 @@
    flex-direction: column;
    top: 20%;
    left: 34%;
-   &__title {
-      font-family: "Caveat", cursive;
-      font-size: 30px;
-      margin-bottom: 15px;
-      text-align: center;
-   }
+
    &__btn {
       font-family: "Caveat", cursive;
       padding: 5px;
@@ -17,15 +12,10 @@
       border-radius: 20px;
       margin-bottom: 20px;
    }
-   &__favorite {
-      position: relative;
-      display: inline-block;
-      background-color: #fff;
-      text-align: center;
-      padding-bottom: 20px;
-   }
-   &__icon {
-      width: 100px;
+   &__personal-account {
+      svg {
+         fill: rebeccapurple;
+      }
    }
 }
 .fav-icon {

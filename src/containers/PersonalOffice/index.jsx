@@ -4,6 +4,7 @@ import Button from '@material-ui/core/Button';
 
 import axiosOrder from "../../instance";
 import Orders from '../../components/Orders';
+import Favorite from "../Favorite";
 import "./index.scss";
 
 
@@ -33,11 +34,15 @@ class PersonalInfo extends React.Component {
    }
    render() {
       return (
-         <>
-            <Button variant="contained" color="secondary" onClick={this.ShowOrders}>{this.state.showOrders
-               ? <span>Сховати</span>
-               : <span>Показати усі замовлення</span>}</Button>
-            {this.state.showOrders ? <Orders items={this.state.items} /> : null}
+         < >
+            <Favorite />
+            <div className="content">
+               <Button variant="contained" color="secondary" onClick={this.ShowOrders}>{this.state.showOrders
+                  ? <span>Сховати</span>
+                  : <span>Показати усі замовлення</span>}</Button>
+               {this.state.showOrders ? <Orders items={this.state.items} /> : null}
+            </div>
+
          </>
       );
    }

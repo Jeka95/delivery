@@ -82,7 +82,6 @@ class SingIn extends React.Component {
                   ? <>
                      <button className="auth__btn" onClick={signOut}>Вийти</button>
                      <Link to="/personal-info" className="auth__personal-account"><PersonIcon /></Link>
-                     {/* <InfoItem className="auth__favorite" link="/favorite">  </InfoItem> */}
 
                   </>
                   : <>
