@@ -24,27 +24,27 @@
 .menu__linc:hover {
    background: #f99f1b;
    svg {
-      fill: #3a3f36;
+      fill: #364926;
    }
    span {
       margin-top: -5px;
       font-weight: 700;
       display: block;
-      color: #3a3f36;
+      color: #364926;
    }
 }
 .menu__linc.active {
    background: #f99f1b;
-   color: #3a3f36;
+   color: #364926;
 
    span {
       margin-top: -5px;
       font-weight: 700;
       display: block;
-      color: #3a3f36;
+      color: #364926;
    }
    svg {
-      fill: #3a3f36;
+      fill: #364926;
    }
 }
 
@@ -52,7 +52,7 @@
    border-radius: 12px;
    display: flex;
    justify-content: space-around;
-   background: #3a3f36;
+   background: #364926;
    list-style-type: none;
    align-items: center;
 }

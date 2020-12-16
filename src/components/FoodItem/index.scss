@@ -27,6 +27,7 @@
       }
    }
    &__title {
+      font-weight: 500;
       font-size: 30px;
       text-align: right;
       padding-right: 5px;
@@ -80,52 +81,34 @@
    }
 
    &__btnLike {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background: white;
+      background-color: transparent;
       border-radius: 50%;
-      border: 3px solid #09551f;
-      box-shadow: 0 3px 0px #063b15;
+      width: 30px;
+      height: 30px;
+      transition-duration: 500ms;
+      svg {
+         fill: grey;
+      }
+   }
+   &__btnLike:hover {
+      svg {
+         fill: #b61616;
+      }
+   }
+   &__btnLike:active {
+      svg {
+         fill: #b61616;
+      }
+   }
+   &__btnLike-active {
+      background-color: transparent;
       width: 40px;
       height: 40px;
       transition-duration: 500ms;
-   }
-   &__btnLike:hover {
-      .like {
-         fill: #b61616;
-      }
-      border: 3px solid #b61616;
-      box-shadow: 0 0px 0px #b61616;
-      transform: translate(0px, 3px);
-   }
-   &__btnLike:active {
-      .like {
-         fill: #b61616;
-      }
-      border: 3px solid #b61616;
-      box-shadow: 0 0px 0px #b61616;
-      transform: translate(0px, 3px);
-   }
-   &__btnLike-active {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background: white;
-      border-radius: 50%;
-      border: 3px solid #09551f;
-      box-shadow: 0 3px 0px #063b15;
-      width: 50px;
-      height: 50px;
-      transition-duration: 500ms;
-      .like {
+      svg {
          fill: #b61616;
       }
    }
-}
-.like {
-   transition-duration: 500ms;
-   fill: green;
 }
 .food-block img {
    margin: 0 auto;

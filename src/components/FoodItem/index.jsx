@@ -30,7 +30,7 @@ class FoodItem extends React.Component {
             <div className="food-block__bottom">
                <div className="food-block__price"> {this.props.food.price} грн</div>
                <button className="food-block__btnAdd" onClick={() => { this.props.AddToCard(this.props.food) }}>Замовити</button>
-               <button className={this.props.food.bool ? "food-block__btnLike-active" : "food-block__btnLike"} onClick={() => { this.props.food.bool ? this.props.RemoveFavorite(this.props.food) : this.props.AddFavorite(this.props.food) }}><Like /></button>
+               <button className={this.props.food.bool ? "food-block__btnLike-active" : "food-block__btnLike"} onClick={() => { this.props.food.bool ? this.props.RemoveFavorite(this.props.food) : this.props.AddFavorite(this.props.food) }}> <Like /></button>
 
             </div>
          </div >
