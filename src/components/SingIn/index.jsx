@@ -9,8 +9,8 @@ import { Link } from "react-router-dom";
 import "./index.scss"
 import axiosUser from "../../instance"
 import FirebaseConfig from '../../FirebaseConfig';
-import InfoItem from "../Info/InfoItem";
 import PersonIcon from "../../assets/person";
+import GoogleIcon from "../../assets/google";
 
 
 
@@ -85,7 +85,7 @@ class SingIn extends React.Component {
 
                   </>
                   : <>
-                     <button className="auth__btn" onClick={signInWithGoogle} ><p> Увійдіть з Google</p></button>
+                     <button className="auth__btn" onClick={signInWithGoogle} ><p> Увійдіть з <GoogleIcon /></p></button>
                   </>
             }
          </div >

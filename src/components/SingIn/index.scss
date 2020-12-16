@@ -1,16 +1,23 @@
 .auth {
+   margin-right: 15px;
    display: flex;
    flex-direction: column;
-   top: 20%;
-   left: 34%;
 
    &__btn {
-      font-family: "Caveat", cursive;
       padding: 5px;
       background-color: lightblue;
-      font-size: 30px;
-      border-radius: 20px;
+      font-size: 20px;
+      border-radius: 10px;
       margin-bottom: 20px;
+      svg {
+         width: 25px;
+         height: 25px;
+         fill: red;
+      }
+      p {
+         display: flex;
+         align-items: center;
+      }
    }
    &__personal-account {
       background: #000;
