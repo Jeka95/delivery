@@ -1,6 +1,35 @@
 .footer {
-   background: url("../../assets/bg5.jfif") 0 0 / cover no-repeat;
-
-   padding: 20px 0px 0px 0;
-   padding: 50px;
+   background: #364926;
+   display: flex;
+   flex-wrap: wrap-reverse;
+   justify-content: space-between;
+   padding: 30px;
+   &__name {
+      font-size: 30px;
+      color: #f99f1b;
+   }
+   &__lincs {
+      display: flex;
+      flex-wrap: wrap;
+      margin: 20px;
+   }
+   &__linc {
+      margin-right: 50px;
+      text-transform: uppercase;
+      color: #f99f1b;
+      font-weight: 600;
+      list-style: none;
+      border-bottom: 2px solid #d3cece;
+      transition-duration: 500ms;
+      a {
+         color: red;
+      }
+      a:visited {
+         color: red;
+      }
+      :hover {
+         color: #f1ece3;
+         border-bottom: 2px solid #f99f1b;
+      }
+   }
 }
